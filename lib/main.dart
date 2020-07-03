@@ -14,10 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import 'dart:io';
+
 import 'package:GeneratedApp/applications/calculator.dart';
 import 'package:GeneratedApp/applications/editor.dart';
 import 'package:GeneratedApp/applications/welcome.dart';
 import 'package:GeneratedApp/applications/monitor.dart';
+import 'package:GeneratedApp/applications/files.dart';
+import 'package:GeneratedApp/localization/localization.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'quick_settings.dart';
 import 'window_space.dart';
@@ -92,17 +99,49 @@ List<AppLauncherPanelButton> testLaunchers = [
       app: Settings(), icon: 'lib/images/icons/v2/compiled/settings.png'),
 ];
 
-void main() {
+void main() async {
+  //init hive
+  WidgetsFlutterBinding.ensureInitialized();
+  Directory dir = await getApplicationDocumentsDirectory();
+  Hive.init(dir.path);
+  await Hive.openBox<String>("settings");
+
   /// To keep app in Portrait Mode
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
-  runApp(MyApp());
+  runApp(Pangolin());
 }
 
-class MyApp extends StatelessWidget {
+class Pangolin extends StatefulWidget {
+  @override
+  _PangolinState createState() => _PangolinState();
+
+  static void setLocale(BuildContext context, Locale locale) {
+    _PangolinState state = context.findAncestorStateOfType<_PangolinState>();
+    state.setLocale(locale);
+  }
+
+  static Box<String> settingsBox;
+}
+
+class _PangolinState extends State<Pangolin> {
+  Locale _locale;
+
+  @override
+  void initState() {
+    Pangolin.settingsBox = Hive.box("settings");
+    _locale = Locale(Pangolin.settingsBox.get("language") ?? "en");
+    super.initState();
+  }
+
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     //Gets DahliaOS UI set up in a familiar way.
-
 
     return ChangeNotifierProvider<WindowsData>(
       create: (context) => provisionalWindowData,
@@ -121,6 +160,17 @@ class MyApp extends StatelessWidget {
             title: 'Pangolin Desktop',
             theme: theme,
             home: MyHomePage(title: 'Pangolin Desktop'),
+            supportedLocales: [
+              Locale("en", ""),
+              Locale("de", ""),
+            ],
+            localizationsDelegates: [
+              Localization.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            locale: _locale,
           );
         },
       ),
@@ -217,8 +267,8 @@ class _MyHomePageState extends State<MyHomePage> {
         SystemOverlay(
           key: KeyRing.statusOverlayKey,
           builder: (Animation<double> animation) => Positioned(
-            right: 0.0,
-            bottom: 50.0,
+            right: 5.0,
+            bottom: 55.0,
             child: AnimatedBuilder(
               animation: animation,
               builder: (BuildContext context, Widget child) => FadeTransition(
@@ -251,80 +301,86 @@ class _MyHomePageState extends State<MyHomePage> {
 
         // 5 - The bottom bar
         Positioned(
+          //change below values to 15 or something to give it a starlight-like look
           left: 0.0,
           right: 0.0,
           bottom: 0.0,
           child: GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: hideOverlays,
-            child: Container(
-              //color: Color.fromARGB(150, 0, 0, 0),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(150, 0, 0, 0),
-              ),
-              height: 50.0,
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        LauncherToggleWidget(
-                          toggleKey: KeyRing.launcherToggleKey,
-                          callback: toggleCallback,
-                        ),
-                        AppLauncherPanelButton(
-                          app: Calculator(),
-                          icon: 'lib/images/icons/v2/compiled/calculator.png',
-                          color: Colors.green,
-                          callback: toggleCallback,
-                        ),
-                        AppLauncherPanelButton(
-                            app: TextEditorApp(),
-                            icon: 'lib/images/icons/v2/compiled/notes.png',
-                            color: Colors.amber[700],
-                            callback: toggleCallback),
-                        AppLauncherPanelButton(
-                            app: Terminal(),
-                            icon: 'lib/images/icons/v2/compiled/terminal.png',
-                            color: Colors.grey[900],
-                            callback: toggleCallback),
-                        AppLauncherPanelButton(
-                            icon: 'lib/images/icons/v2/compiled/files.png',
-                            appExists: false,
-                            color: Colors.grey,
-                            callback: toggleCallback),
-                        AppLauncherPanelButton(
-                          app: Tasks(),
-                          icon: 'lib/images/icons/v2/compiled/task.png',
-                          color: Colors.cyan[900],
-                          callback: toggleCallback,
-                        ),
-                        AppLauncherPanelButton(
-                            app: Settings(),
-                            icon: 'lib/images/icons/v2/compiled/settings.png',
-                            color: Colors.deepOrange,
-                            callback: toggleCallback),
-                        AppLauncherPanelButton(
-                            app: HisApp(),
-                            icon: 'lib/images/icons/v2/compiled/theme.png',
-                            color: Colors.grey[900],
-                            callback: toggleCallback),
-                      ]),
-                  StatusTrayWidget(
-                    toggleKey: KeyRing.statusToggleKey,
-                    callback: (bool toggled) => setOverlayVisibility(
-                      overlay: KeyRing.statusOverlayKey,
-                      visible: toggled,
+            child: ClipRRect(child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                child: Container(
+                //color: Color.fromARGB(150, 0, 0, 0),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(150, 0, 0, 0),
+                  //uncomment below to add radius to the launcher panel
+                  //borderRadius: BorderRadius.circular(100),
+                ),
+                height: 50.0,
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          LauncherToggleWidget(
+                            toggleKey: KeyRing.launcherToggleKey,
+                            callback: toggleCallback,
+                          ),
+                          AppLauncherPanelButton(
+                            app: Calculator(),
+                            icon: 'lib/images/icons/v2/compiled/calculator.png',
+                            color: Colors.green,
+                            callback: toggleCallback,
+                          ),
+                          AppLauncherPanelButton(
+                              app: TextEditorApp(),
+                              icon: 'lib/images/icons/v2/compiled/notes.png',
+                              color: Colors.amber[700],
+                              callback: toggleCallback),
+                          AppLauncherPanelButton(
+                              app: Terminal(),
+                              icon: 'lib/images/icons/v2/compiled/terminal.png',
+                              color: Colors.grey[900],
+                              callback: toggleCallback),
+                          AppLauncherPanelButton(
+                              app: Files(),
+                              icon: 'lib/images/icons/v2/compiled/files.png',
+                              color: Colors.deepOrange,
+                              callback: toggleCallback),
+                          AppLauncherPanelButton(
+                            app: Tasks(),
+                            icon: 'lib/images/icons/v2/compiled/task.png',
+                            color: Colors.cyan[900],
+                            callback: toggleCallback,
+                          ),
+                          AppLauncherPanelButton(
+                              app: Settings(),
+                              icon: 'lib/images/icons/v2/compiled/settings.png',
+                              color: Colors.deepOrange,
+                              callback: toggleCallback),
+                          AppLauncherPanelButton(
+                              app: HisApp(),
+                              icon: 'lib/images/icons/v2/compiled/theme.png',
+                              color: Colors.grey[900],
+                              callback: toggleCallback),
+                        ]),
+                    StatusTrayWidget(
+                      toggleKey: KeyRing.statusToggleKey,
+                      callback: (bool toggled) => setOverlayVisibility(
+                        overlay: KeyRing.statusOverlayKey,
+                        visible: toggled,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
+                  ],
+                ),
+              )
+            )),
           ),
         ),
 
