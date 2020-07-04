@@ -1,11 +1,14 @@
 ///Haru says:Experiment to test dynamic [appLoading] in flutter web because I'm foolhardy.
+///Haru says:Experiment to test dynamic [appLoading] in flutter because I'm foolhardy.
 
 /// Composition of this app:
 /// 1% Exploration of Dart VM Facilities
 /// 99% Obscure Visual Novel Reference
 
 import 'dart:isolate';
-import 'dart:html';
+
+import 'dart:ui';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,13 +16,6 @@ import '../window/model.dart';
 import 'dart:async';
 
 dynamic appLoading; //Documentation Aesthetic
-
-//TODO: If I'm allowed to be optimistic and use cryptic metaphors, the rough plan should be to:
-
-//TODO: Create a Mirror World instance
-//TODO: Use a message to pass App inside Mirror World to the outside world's call to the main [WindowsData] add method
-
-//TODO: explore #33388
 
 main() {
   runApp(Rin());
@@ -64,8 +60,11 @@ class _RinState extends State<Rin> with SingleTickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          bottomOpacity: 70.0,
-          title: Text('無理だよ〜'),
+          bottomOpacity: 5.0,
+          title: Text(
+            '無理だよ〜',
+            style: TextStyle(fontFamily: 'Kosugi-Maru'),
+          ),
           flexibleSpace: Container(
               decoration: BoxDecoration(
                   color: Colors.pinkAccent,
@@ -73,29 +72,29 @@ class _RinState extends State<Rin> with SingleTickerProviderStateMixin {
                 BoxShadow(
                     color: Colors.pink[100].withOpacity(controller.value),
                     offset: Offset.fromDirection(90),
-                    blurRadius: 100,
-                    spreadRadius: 200.5)
+                    blurRadius: 50,
+                    spreadRadius: 20.5)
               ]))),
       backgroundColor: Colors.pink[100].withOpacity(controller.value),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 50.0),
-        child: Container(
-          decoration:
-              BoxDecoration(color: Colors.pinkAccent, boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.pinkAccent,
-                offset: Offset.fromDirection(90),
-                blurRadius: 15,
-                spreadRadius: 20.5)
-          ]),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              SizedBox(
-                height: 90,
-              ),
-              InputButton(
+      body: Container(
+        decoration:
+            BoxDecoration(color: Colors.pinkAccent, boxShadow: <BoxShadow>[
+          BoxShadow(
+              color: Colors.pinkAccent,
+              offset: Offset.fromDirection(190),
+              blurRadius: 50,
+              spreadRadius: 20.5)
+        ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            SizedBox(
+              height: 90,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 80),
+              child: InputButton(
                 text: 'Create A Chronos World!',
                 function: () async {
                   Isolate MirrorWorld = await Isolate.spawnUri(
@@ -108,45 +107,55 @@ class _RinState extends State<Rin> with SingleTickerProviderStateMixin {
                 },
                 color: Colors.pink[50],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Hero(
-                    tag: 'rin-rin',
-                    child: Container(
-                      child: Image.asset('lib/images/sakurai_rin.png'),
-                      height: (controller.value * 100),
-                    ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Hero(
+                  tag: 'rin-rin',
+                  child: Container(
+                    child: Image.asset('lib/images/rin.png'),
+                    height: (controller.value * 100),
                   ),
-                  Text(
-                    "Dahlia",
-                    style: TextStyle(
+                ),
+                Text(
+                  "Dahlia",
+                  style: TextStyle(
+                    color: Colors.tealAccent,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ), //DahliaChronos
+                TypewriterAnimatedTextKit(
+                    text: ['Chron'],
+                    totalRepeatCount: 1,
+                    speed: Duration(milliseconds: 500),
+                    textStyle: TextStyle(
                       color: Colors.tealAccent,
                       fontSize: 16.0,
                       fontWeight: FontWeight.w900,
-                    ),
-                  ), //DahliaChronos
-                  TypewriterAnimatedTextKit(
-                      text: ['Chron'],
-                      totalRepeatCount: 1,
-                      speed: Duration(milliseconds: 500),
-                      textStyle: TextStyle(
-                        color: Colors.tealAccent,
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w900,
-                      )),
-                  Text(
-                    'OS',
-                    style: TextStyle(
-                      color: Colors.tealAccent,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w900,
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
+                    )),
+                Text(
+                  'OS',
+                  style: TextStyle(
+                    color: Colors.tealAccent,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w900,
+                  ),
+                )
+              ],
+            ),
+            Container(
+                decoration: BoxDecoration(
+                    color: Colors.pinkAccent,
+                    boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: Colors.pink[100].withOpacity(controller.value),
+                      offset: Offset.fromDirection(90),
+                      blurRadius: 50,
+                      spreadRadius: 20.5)
+                ]))
+          ],
         ),
       ),
     );

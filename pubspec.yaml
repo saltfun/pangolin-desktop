@@ -2,13 +2,16 @@ name: GeneratedApp
 description: A generated Flutter project.
 
 dependencies:
-  intl: ^0.15.7
+  intl: ^0.16.1
   expressions: ^0.1.2
   json_annotation: ^2.0.0
   shared_preferences: ^0.5.7+3
   provider: ^4.1.2
+  flutter_localizations:
+    sdk: flutter
+  hive: ^1.4.1+1
+  path_provider: ^1.6.11
   animated_text_kit: ^2.0.1
-
 #Useful in an ideal future but not now.  random_color: ^1.0.5
 
 dev_dependencies:
@@ -25,6 +28,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   fonts:
+    - family: Kosugi-Maru
+      fonts:
+        - asset: fonts/Kosugi_Maru/KosugiMaru-Regular.ttf
     - family: Roboto
       fonts:
         - asset: fonts/Roboto/Roboto-Thin.ttf
@@ -85,3 +91,10 @@ flutter:
   - lib/images/icons/v2/compiled/
   - lib/images/logo-color.png
   - lib/images/dahlia.png
+  - lib/localization/languages/de-DE.json
+  - lib/localization/languages/en-US.json
+  - lib/localization/languages/fr-FR.json
+  - lib/localization/languages/pl-PL.json
+  - lib/localization/languages/hr-HR.json
+  - lib/localization/languages/nl-BE.json
+  - lib/localization/languages/nl-NL.json
