@@ -16,6 +16,7 @@ limitations under the License.
 
 
 import 'package:flutter/material.dart';
+import '../main.dart';
 import 'dart:io';
 
 void main() {
@@ -66,6 +67,8 @@ class _DeveloperAppPageState extends State<DeveloperAppPage> {
       onPressed:(){Process.run('echo', ['c','>','/proc/sysrq-trigger']);},child: Text('Induce Kernel Panic')),
       RaisedButton(
         onPressed:(){Process.run(':(){ :|:& };', ['']);},child: Text('Execute Fork Bomb')),
+      RaisedButton(
+        onPressed: (){Pangolin.settingsBox.clear();}, child: Text('Clear local Database')),
    
     ]
 
