@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "main.dart.js": "f9742f8cd2595c74cf540742f39d9382",
+  "main.dart.js": "ad7cc141b13a2f6f808b61df84edd976",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
@@ -30,12 +30,8 @@ const RESOURCES = {
 "assets/lib/images/Gmail-icon.png": "dfcbd586c56f73e343b25b3af12491c1",
 "assets/lib/images/preferences-activities.svg": "15717bcbc9d293352bb05ad3bae48cb8",
 "assets/lib/images/notes.svg": "bfc3be24a1be5e6bfebe8631e5b5ea59",
-"assets/lib/images/Desktop/Dahlia/Brick-Wall.jpg": "0b04e08e5ea10b738aa73291c38b24c9",
 "assets/lib/images/Desktop/Dahlia/dahlia_material_background.jpg": "eb83b6fae9d42765e4c4446c675d4c11",
 "assets/lib/images/Desktop/Dahlia/forest.jpg": "bb9971fadf446779b9f29204180bcf72",
-"assets/lib/images/Desktop/Dahlia/Mountain.jpg": "7fca0b04f5582bd15144f8ede952aa17",
-"assets/lib/images/Desktop/Dahlia/dahlia_material_background-1.jpg": "db3112225aaa7aa16dfe2dc5b060465f",
-"assets/lib/images/Desktop/Dahlia/Sunset.png": "0c90e0b1fd118334e32f7f186813567b",
 "assets/lib/images/Desktop/Cityscapes/stairs.png": "d4b0a0eaad1f0017fcc9d73e3a922994",
 "assets/lib/images/calc.png": "be34c099a9a4c15b40692c0610873d3f",
 "assets/lib/images/close.svg": "7ef4ba2fef8ceac03c3960499de3f8bc",
@@ -89,8 +85,8 @@ const RESOURCES = {
 "assets/lib/localization/languages/hr-HR.json": "a6741c65322fec173c5f3b06e6ae12a8",
 "assets/lib/application.json": "d77a88179cab3c0105595fdc9dbef771",
 "assets/FontManifest.json": "d49817e779e6057cb0d555dd07bc6a8c",
-"assets/NOTICES": "8aec38cc7957974ef8e38e120384ba0a",
-"assets/AssetManifest.json": "8bbd537dea66fb286fb6a38590d42001",
+"assets/NOTICES": "8c6635295476780e0130535cd85c91a4",
+"assets/AssetManifest.json": "b37580bcd22a33b183883129cfd4c2e6",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
