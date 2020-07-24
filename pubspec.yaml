@@ -15,6 +15,7 @@ dependencies:
   hive: ^1.4.1+1
   hive_flutter: ^0.3.0+2
   path_provider: ^1.6.11
+  animated_text_kit: ^2.0.1
 #Useful in an ideal future but not now.  random_color: ^1.0.5
 
 dependency_overrides:
@@ -33,6 +34,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   fonts:
+    - family: Kosugi-Maru
+      fonts:
+        - asset: fonts/Kosugi_Maru/KosugiMaru-Regular.ttf
     - family: Roboto
       fonts:
         - asset: fonts/Roboto/Roboto-Thin.ttf

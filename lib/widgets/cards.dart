@@ -30,6 +30,7 @@ import 'package:GeneratedApp/themes/main.dart';
 import 'package:GeneratedApp/commons/key_ring.dart';
 import 'package:GeneratedApp/commons/functions.dart';
 import 'package:GeneratedApp/applications/logging.dart';
+import '../applications/rin_sakurai.dart';
 
 Expanded tileSection(BuildContext context) {
   Localization local = Localization.of(context);
@@ -140,6 +141,12 @@ Expanded tileSection(BuildContext context) {
               icon: 'lib/images/icons/v2/compiled/help.png',
               label: local.get("app_help"),
               appExists: false),
+          AppLauncherDrawerButton(
+              app: Rin(),
+              icon: 'lib/images/rinDot.png',
+              label: "Rin's Mirror Worlds",
+              color: Colors.pinkAccent,
+              callback: toggleCallback)
         ])),
   );
 }
@@ -325,40 +332,39 @@ Card buildCard(IconData icon, String title, Color color, Color splash,
         child: new Padding(
           padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 8.0),
           child: SingleChildScrollView(
-          child: new Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                new SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child:
-                new Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      new Icon(icon, color: color, size: 20.0),
-                      new Text(
-                        " " + title,
-                        style: new TextStyle(
-                            fontSize: 15.0,
-                            color: color,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "Roboto"),
-                      )
-                    ]),
-                ),
-                new Text(
-                  text,
-                  style: new TextStyle(
-                      fontSize: 15.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "Roboto"),
-                )
-              ]),
-            ),
+            child: new Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  new SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Icon(icon, color: color, size: 20.0),
+                          new Text(
+                            " " + title,
+                            style: new TextStyle(
+                                fontSize: 15.0,
+                                color: color,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "Roboto"),
+                          )
+                        ]),
+                  ),
+                  new Text(
+                    text,
+                    style: new TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Roboto"),
+                  )
+                ]),
+          ),
         ),
       ),
     ),
