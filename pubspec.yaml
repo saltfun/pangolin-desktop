@@ -18,7 +18,7 @@ dependencies:
 #Useful in an ideal future but not now.  random_color: ^1.0.5
 
 dependency_overrides:
-  path: ^1.6.4
+  path: ^1.7.0
 
 dev_dependencies:
   json_serializable: ^2.0.0
