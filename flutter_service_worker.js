@@ -7,7 +7,7 @@ const RESOURCES = {
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "assets/NOTICES": "8c6635295476780e0130535cd85c91a4",
-"assets/AssetManifest.json": "935eafb6ee9ad577ae023f727d950acc",
+"assets/AssetManifest.json": "c18aa6c7f59d35af1ab77788d976efa5",
 "assets/fonts/Roboto/Roboto-Black.ttf": "ec4c9962ba54eb91787aa93d361c10a8",
 "assets/fonts/Roboto/Roboto-Light.ttf": "fc84e998bc29b297ea20321e4c90b6ed",
 "assets/fonts/Roboto/Roboto-Regular.ttf": "3e1af3ef546b9e6ecef9f3ba197bf7d2",
@@ -28,8 +28,12 @@ const RESOURCES = {
 "assets/fonts/Source_Code_Pro/SourceCodePro-Italic.ttf": "c088801620ae4d69924da74e879170a9",
 "assets/fonts/Source_Code_Pro/SourceCodePro-LightItalic.ttf": "ac76390ae8518be5c0a0bd1f3b088b4b",
 "assets/fonts/Source_Code_Pro/SourceCodePro-BlackItalic.ttf": "fb68d27992feaf97dab1e5640a6f5812",
-"assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"assets/FontManifest.json": "d49817e779e6057cb0d555dd07bc6a8c",
+"assets/fonts/MaterialIcons-Regular.otf": "a68d2a28c526b3b070aefca4bac93d25",
+"assets/fonts/Cousine/Cousine-Regular.ttf": "64a889644e439ac4806c8e41bc9d1c83",
+"assets/fonts/Cousine/Cousine-Italic.ttf": "177a3d2157da07498e805683e8cdaa8d",
+"assets/fonts/Cousine/Cousine-BoldItalic.ttf": "1038b5579146b28e9e4dc98c8fc5d1d9",
+"assets/fonts/Cousine/Cousine-Bold.ttf": "06dae6a1a3247bd76125cfe3b3480557",
+"assets/FontManifest.json": "76e483e1e78790872d879b82f449c673",
 "assets/lib/application.json": "d77a88179cab3c0105595fdc9dbef771",
 "assets/lib/localization/languages/de-DE.json": "6b2e2c752741cff0b12c68a13f25dd7c",
 "assets/lib/localization/languages/hr-HR.json": "a6741c65322fec173c5f3b06e6ae12a8",
@@ -90,7 +94,7 @@ const RESOURCES = {
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
-"main.dart.js": "55d74d3fc1b679d95926482c4e4e5548"
+"main.dart.js": "33a31e83ae4c5a65ea5fd3e21e2ebe0f"
 };
 
 // The application shell files that are downloaded before a service worker can
