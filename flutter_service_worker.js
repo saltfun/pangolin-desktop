@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "main.dart.js": "8f8588afa04b099135b777a741ffeccf",
+  "main.dart.js": "b85b5709ba828f3c5928a8415bb65834",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
@@ -39,8 +39,12 @@ const RESOURCES = {
 "assets/lib/images/settings.png": "ff6396d14363cf9951455a79b36ae35b",
 "assets/lib/images/close.svg": "7ef4ba2fef8ceac03c3960499de3f8bc",
 "assets/lib/images/Desktop/Cityscapes/stairs.png": "d4b0a0eaad1f0017fcc9d73e3a922994",
+"assets/lib/images/Desktop/Dahlia/dahlia_material_background-1.jpg": "db3112225aaa7aa16dfe2dc5b060465f",
 "assets/lib/images/Desktop/Dahlia/forest.jpg": "bb9971fadf446779b9f29204180bcf72",
+"assets/lib/images/Desktop/Dahlia/Brick-Wall.jpg": "0b04e08e5ea10b738aa73291c38b24c9",
 "assets/lib/images/Desktop/Dahlia/dahlia_material_background.jpg": "eb83b6fae9d42765e4c4446c675d4c11",
+"assets/lib/images/Desktop/Dahlia/Sunset.png": "0c90e0b1fd118334e32f7f186813567b",
+"assets/lib/images/Desktop/Dahlia/mountain.jpg": "7fca0b04f5582bd15144f8ede952aa17",
 "assets/lib/images/preferences-activities.svg": "15717bcbc9d293352bb05ad3bae48cb8",
 "assets/lib/images/notes.svg": "bfc3be24a1be5e6bfebe8631e5b5ea59",
 "assets/lib/images/dahlia.png": "a588898d0b4be5e5234723478478badc",
@@ -91,7 +95,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/hr-HR.json": "a6741c65322fec173c5f3b06e6ae12a8",
 "assets/lib/localization/languages/nl-BE.json": "24ab8aa388f2f59a73a8421aae1add1c",
 "assets/NOTICES": "c80595697291b7137eac421a135fce38",
-"assets/AssetManifest.json": "3b1afd106348a9417fa3d27a886e063a",
+"assets/AssetManifest.json": "17881d0cbef02f8521a3db4528891fbc",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2"
