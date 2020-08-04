@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "main.dart.js": "321cfa74506d47edf1faa03cf2c18025",
+  "main.dart.js": "81356199e46a43ba9d14d7c7b0d7ff9c",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
@@ -94,6 +94,7 @@ const RESOURCES = {
 "assets/lib/images/icons/v2/compiled/music.png": "91e7695e656f380f48df79ef8616b205",
 "assets/lib/images/icons/v2/compiled/developer.png": "14f413a0c0ba35af4fe5bcc04ebf2820",
 "assets/lib/images/icons/v2/compiled/discord.svg": "f8389ca1a741a115313bede9ac02e2c0",
+"assets/lib/images/icons/v2/compiled/telegram.png": "36218d3af50dbc1d0240879a5f966fc4",
 "assets/lib/images/icons/v2/compiled/disks.png": "b8c23e9bf62238d900b958540be4f236",
 "assets/lib/images/icons/v2/compiled/photos.png": "9b2ee870807ea18761ff4bf308897394",
 "assets/lib/images/icons/v2/compiled/social.png": "e0f4fcf882cc23ed646290fbfc859986",
@@ -111,7 +112,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/hr-HR.json": "a6741c65322fec173c5f3b06e6ae12a8",
 "assets/lib/localization/languages/nl-BE.json": "24ab8aa388f2f59a73a8421aae1add1c",
 "assets/NOTICES": "c80595697291b7137eac421a135fce38",
-"assets/AssetManifest.json": "a17b8cfa3c89c573cc23b54217746de1",
+"assets/AssetManifest.json": "7d2ad862a2d2ca4abeb345a3e9c5b226",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2"
