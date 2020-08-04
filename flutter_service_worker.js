@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "main.dart.js": "e04d8740802f2fbcffca5ef9b71775c8",
+  "main.dart.js": "8edc7abfb1c0c112479cedc3614e5a5d",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
@@ -64,6 +64,7 @@ const RESOURCES = {
 "assets/lib/images/maximize.svg": "ba29473f37ab194a01c241d5daf7d550",
 "assets/lib/images/gallery.png": "5259483d1365c9b825bd6947cd85c016",
 "assets/lib/images/phone.png": "de209128b7b3241f65b8b5c117c10190",
+"assets/lib/images/icons/v2/compiled/fuchsia.png": "687e3a9bac810885c97028229adf3ac2",
 "assets/lib/images/icons/v2/compiled/task.png": "548e313c465c5caf31cad9d574119016",
 "assets/lib/images/icons/v2/compiled/calculator.png": "b5d2f4da128fd5a0eed0ed52a5ac9147",
 "assets/lib/images/icons/v2/compiled/note_mobile.png": "5bc75d1575688657c59eeab91631d473",
@@ -103,7 +104,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/hr-HR.json": "a6741c65322fec173c5f3b06e6ae12a8",
 "assets/lib/localization/languages/nl-BE.json": "24ab8aa388f2f59a73a8421aae1add1c",
 "assets/NOTICES": "c80595697291b7137eac421a135fce38",
-"assets/AssetManifest.json": "d25bf70d3d6b175fc8ad6e6f23293503",
+"assets/AssetManifest.json": "5970c7d443bc06fddd02b023be0a76dd",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2"
