@@ -93,6 +93,7 @@ const RESOURCES = {
 "assets/lib/images/icons/v2/compiled/credits.png": "8eb3c439b19df88fb7643c395bc983b2",
 "assets/lib/images/icons/v2/compiled/music.png": "91e7695e656f380f48df79ef8616b205",
 "assets/lib/images/icons/v2/compiled/developer.png": "14f413a0c0ba35af4fe5bcc04ebf2820",
+"assets/lib/images/icons/v2/compiled/discord.svg": "f8389ca1a741a115313bede9ac02e2c0",
 "assets/lib/images/icons/v2/compiled/disks.png": "b8c23e9bf62238d900b958540be4f236",
 "assets/lib/images/icons/v2/compiled/photos.png": "9b2ee870807ea18761ff4bf308897394",
 "assets/lib/images/icons/v2/compiled/social.png": "e0f4fcf882cc23ed646290fbfc859986",
@@ -110,7 +111,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/hr-HR.json": "a6741c65322fec173c5f3b06e6ae12a8",
 "assets/lib/localization/languages/nl-BE.json": "24ab8aa388f2f59a73a8421aae1add1c",
 "assets/NOTICES": "c80595697291b7137eac421a135fce38",
-"assets/AssetManifest.json": "09615afa2ddbcfa67a1de7d46867a92a",
+"assets/AssetManifest.json": "a17b8cfa3c89c573cc23b54217746de1",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2"
