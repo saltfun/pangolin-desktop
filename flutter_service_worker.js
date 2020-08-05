@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "main.dart.js": "0b2b00506273528d15ef658d5227a3f4",
+  "main.dart.js": "3408f033b0afc5a8b203538d98d9e17e",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
@@ -106,7 +106,7 @@ const RESOURCES = {
 "assets/lib/application.json": "d77a88179cab3c0105595fdc9dbef771",
 "assets/lib/localization/languages/fr-FR.json": "313a3d6c9d81acf9fe509c421e307e54",
 "assets/lib/localization/languages/en-US.json": "bfa408fc0b806af35faf823a346ad350",
-"assets/lib/localization/languages/de-DE.json": "6b2e2c752741cff0b12c68a13f25dd7c",
+"assets/lib/localization/languages/de-DE.json": "5ba4d50e0656f4bd404ee29e3246cf67",
 "assets/lib/localization/languages/nl-NL.json": "0e9754da3bd3ccf3397e10dd7287872d",
 "assets/lib/localization/languages/pl-PL.json": "07f5f805772db0dd17b90eb4500d1af7",
 "assets/lib/localization/languages/hr-HR.json": "a6741c65322fec173c5f3b06e6ae12a8",
