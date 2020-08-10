@@ -44,7 +44,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/en.json": "c4344cab31c416bc7955eb675ca89482",
 "assets/lib/localization/languages/nl.json": "dfa87d07fbba2cdf99bba0b4f606110d",
 "assets/lib/localization/languages/de.json": "56560bd8a6a03a1a4938b2bb54537676",
-"assets/lib/localization/languages/hr.json": "e392c698057f1b122047f2d7798be71b",
+"assets/lib/localization/languages/hr.json": "523f51a00f7d6d92838e2fb570840ee7",
 "assets/lib/application.json": "d77a88179cab3c0105595fdc9dbef771",
 "assets/lib/images/preferences-activities.svg": "15717bcbc9d293352bb05ad3bae48cb8",
 "assets/lib/images/Desktop/Cityscapes/stairs.png": "d4b0a0eaad1f0017fcc9d73e3a922994",
