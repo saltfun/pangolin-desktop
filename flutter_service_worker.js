@@ -42,7 +42,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/fr.json": "346ab8ac49cf0a550497c6585f2cde26",
 "assets/lib/localization/languages/pl.json": "747184bb81dd7bb45b0ccb7db222e52c",
 "assets/lib/localization/languages/en.json": "c4344cab31c416bc7955eb675ca89482",
-"assets/lib/localization/languages/hi.json": "6affd528ad0ebc895630fec28598ec71",
+"assets/lib/localization/languages/hi.json": "1c48c58c116a6d35e0d91606c03303bf",
 "assets/lib/localization/languages/nl.json": "dfa87d07fbba2cdf99bba0b4f606110d",
 "assets/lib/localization/languages/de.json": "56560bd8a6a03a1a4938b2bb54537676",
 "assets/lib/localization/languages/es.json": "e6c9d63ede584416768d1e9d93f7e96f",
