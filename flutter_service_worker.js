@@ -6,7 +6,7 @@ const RESOURCES = {
   "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"main.dart.js": "4b68bd8f034e30a320a76b8db789c330",
+"main.dart.js": "da9a2f81b24e34a4ea657f84c698d598",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
@@ -44,6 +44,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/en.json": "c4344cab31c416bc7955eb675ca89482",
 "assets/lib/localization/languages/nl.json": "dfa87d07fbba2cdf99bba0b4f606110d",
 "assets/lib/localization/languages/de.json": "56560bd8a6a03a1a4938b2bb54537676",
+"assets/lib/localization/languages/es.json": "e6c9d63ede584416768d1e9d93f7e96f",
 "assets/lib/localization/languages/hr.json": "523f51a00f7d6d92838e2fb570840ee7",
 "assets/lib/application.json": "d77a88179cab3c0105595fdc9dbef771",
 "assets/lib/images/preferences-activities.svg": "15717bcbc9d293352bb05ad3bae48cb8",
@@ -113,7 +114,7 @@ const RESOURCES = {
 "assets/lib/images/notes.svg": "bfc3be24a1be5e6bfebe8631e5b5ea59",
 "assets/lib/images/google_logo.png": "9b224c9884c2bb081d4ac92b23675c2e",
 "assets/lib/images/zucc.jpg": "80fca56b8121335ef576b10238bdd7eb",
-"assets/AssetManifest.json": "eca6dad5b1e4966d95a55f1bb90af71d",
+"assets/AssetManifest.json": "1297aa4c5280f9bc970c031e862ac45b",
 "assets/NOTICES": "c80595697291b7137eac421a135fce38"
 };
 
