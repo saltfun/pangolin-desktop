@@ -6,7 +6,7 @@ const RESOURCES = {
   "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"main.dart.js": "9a3a5219eaa23a372c6b1bf9b8f99cb5",
+"main.dart.js": "362b1ba7ec92a9f1c365aa92d343b8f6",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
@@ -105,6 +105,20 @@ const RESOURCES = {
 "assets/lib/images/def.jpg": "24bc69b19e663f4c8174bb27b88bee87",
 "assets/lib/images/maximize.svg": "ba29473f37ab194a01c241d5daf7d550",
 "assets/lib/images/test.jpg": "57020cf201710a061e4a67ef79bc3ebe",
+"assets/lib/images/people/noah.jpeg": "c548542b5b181616bd48d4076e664b58",
+"assets/lib/images/people/haru.jpeg": "8b9b2dc7e5860d2ed1dcbc6caf91e4f8",
+"assets/lib/images/people/hexa.png": "471b6963aad7aaa33001f93931db82f9",
+"assets/lib/images/people/faust.png": "85391c85d4fb7379905cd045ab1d5606",
+"assets/lib/images/people/bleonard.png": "7a774ad7d57b711273cba62eeefb0b5e",
+"assets/lib/images/people/camden.jpeg": "b2deaec16dec8fed29fb9b9ce34ff028",
+"assets/lib/images/people/funeoz.jpeg": "d522359a4cebc56c1b010d045841842e",
+"assets/lib/images/people/horus.png": "0954704c21a5dd4b9e1c1d3002731d93",
+"assets/lib/images/people/fristover.png": "d77e781c46f9030f9fce4905c851f320",
+"assets/lib/images/people/nobody.png": "8ac80de1e2063e5db0fdc2f682635a40",
+"assets/lib/images/people/subspace.png": "0951d9906bf56e0c894cdb8a6af132f6",
+"assets/lib/images/people/lars.jpeg": "9f6e9c8f4065e27be8610c33cddfaacc",
+"assets/lib/images/people/vanzh.png": "b010c6f5739d6582e4dd0222ceb82d99",
+"assets/lib/images/people/x7.jpeg": "0a7fb010e70ddeb807a6b0cd45ed89c1",
 "assets/lib/images/phone.png": "de209128b7b3241f65b8b5c117c10190",
 "assets/lib/images/calc.png": "be34c099a9a4c15b40692c0610873d3f",
 "assets/lib/images/Gmail-icon.png": "dfcbd586c56f73e343b25b3af12491c1",
@@ -114,8 +128,8 @@ const RESOURCES = {
 "assets/lib/images/notes.svg": "bfc3be24a1be5e6bfebe8631e5b5ea59",
 "assets/lib/images/google_logo.png": "9b224c9884c2bb081d4ac92b23675c2e",
 "assets/lib/images/zucc.jpg": "80fca56b8121335ef576b10238bdd7eb",
-"assets/AssetManifest.json": "1297aa4c5280f9bc970c031e862ac45b",
-"assets/NOTICES": "8b3a662b054092720cc058a5eceb8acc"
+"assets/AssetManifest.json": "8c7325a6a4ac53ddfbda70f24e612c69",
+"assets/NOTICES": "c0eaf1721cf32694817390ec299929f7"
 };
 
 // The application shell files that are downloaded before a service worker can
