@@ -6,7 +6,7 @@ const RESOURCES = {
   "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"main.dart.js": "7f50dda2c5ed195167561c66f0156723",
+"main.dart.js": "c17756e87a780419dd648a46ab316059",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
@@ -41,7 +41,7 @@ const RESOURCES = {
 "assets/fonts/Roboto/Roboto-Light.ttf": "fc84e998bc29b297ea20321e4c90b6ed",
 "assets/lib/localization/languages/fr.json": "346ab8ac49cf0a550497c6585f2cde26",
 "assets/lib/localization/languages/pl.json": "747184bb81dd7bb45b0ccb7db222e52c",
-"assets/lib/localization/languages/en.json": "c4344cab31c416bc7955eb675ca89482",
+"assets/lib/localization/languages/en.json": "18f50b7e9ac55033fe427c4ff3f6e334",
 "assets/lib/localization/languages/nl.json": "dfa87d07fbba2cdf99bba0b4f606110d",
 "assets/lib/localization/languages/de.json": "56560bd8a6a03a1a4938b2bb54537676",
 "assets/lib/localization/languages/es.json": "e6c9d63ede584416768d1e9d93f7e96f",
@@ -87,6 +87,7 @@ const RESOURCES = {
 "assets/lib/images/icons/v2/compiled/welcome-info.png": "cf9e894cfddbcd39a5efaf9f29186ba9",
 "assets/lib/images/icons/v2/compiled/terminal.png": "524019d8d97ea6c4ccd3db664375e4da",
 "assets/lib/images/icons/v2/compiled/twitter.png": "60240fc14b7a7282a59050308aeeebed",
+"assets/lib/images/icons/v2/compiled/web.png": "a26b78a08fe2da40a81e3c837a60cede",
 "assets/lib/images/icons/v2/compiled/files.png": "6c5019286c21611abebc9e9b1086be03",
 "assets/lib/images/icons/v2/compiled/telegram.png": "36218d3af50dbc1d0240879a5f966fc4",
 "assets/lib/images/icons/v2/compiled/containers.png": "62d3d4953dc39c773e43fe24dd89c65a",
@@ -128,7 +129,7 @@ const RESOURCES = {
 "assets/lib/images/notes.svg": "bfc3be24a1be5e6bfebe8631e5b5ea59",
 "assets/lib/images/google_logo.png": "9b224c9884c2bb081d4ac92b23675c2e",
 "assets/lib/images/zucc.jpg": "80fca56b8121335ef576b10238bdd7eb",
-"assets/AssetManifest.json": "8c7325a6a4ac53ddfbda70f24e612c69",
+"assets/AssetManifest.json": "87aa2637d6d33fcf45516f38aec86ab6",
 "assets/NOTICES": "c0eaf1721cf32694817390ec299929f7"
 };
 
