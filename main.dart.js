@@ -33500,7 +33500,7 @@ N.a9a.prototype={
 $0:function(){P.wN("reboot",H.a([" "],t.i))},
 $S:0}
 N.a9b.prototype={
-$0:function(){P.wN("shutdown",H.a(["-h","now"],t.i))},
+$0:function(){P.wN("sudo",H.a(["poweroff"],t.i))},
 $S:0}
 N.a9c.prototype={
 $0:function(){P.wN("killall",H.a(["pangolin_desktop"],t.i))},
