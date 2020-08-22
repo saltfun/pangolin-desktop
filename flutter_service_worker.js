@@ -6,7 +6,7 @@ const RESOURCES = {
   "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"main.dart.js": "0a852942a9dad06586baf7f114434603",
+"main.dart.js": "bea1f47b8c02d5e1142f419a29ed572f",
 "index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
 "/": "b28a4fa667aecc6a81ce7156a87c6bca",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
@@ -41,7 +41,9 @@ const RESOURCES = {
 "assets/fonts/Roboto/Roboto-Light.ttf": "fc84e998bc29b297ea20321e4c90b6ed",
 "assets/lib/localization/languages/fr.json": "346ab8ac49cf0a550497c6585f2cde26",
 "assets/lib/localization/languages/pl.json": "747184bb81dd7bb45b0ccb7db222e52c",
+"assets/lib/localization/languages/pt.json": "e1d87b859bf61e72f1837bf4d31ee980",
 "assets/lib/localization/languages/en.json": "18f50b7e9ac55033fe427c4ff3f6e334",
+"assets/lib/localization/languages/id.json": "fa99f073eaf3ffab79f1bc779d6c27d3",
 "assets/lib/localization/languages/nl.json": "dfa87d07fbba2cdf99bba0b4f606110d",
 "assets/lib/localization/languages/de.json": "44276b5369cefaccd0a7e9115c8aea95",
 "assets/lib/localization/languages/es.json": "e6c9d63ede584416768d1e9d93f7e96f",
@@ -129,7 +131,7 @@ const RESOURCES = {
 "assets/lib/images/notes.svg": "bfc3be24a1be5e6bfebe8631e5b5ea59",
 "assets/lib/images/google_logo.png": "9b224c9884c2bb081d4ac92b23675c2e",
 "assets/lib/images/zucc.jpg": "80fca56b8121335ef576b10238bdd7eb",
-"assets/AssetManifest.json": "87aa2637d6d33fcf45516f38aec86ab6",
+"assets/AssetManifest.json": "b11dd459d5139cea4013efa32a8d749c",
 "assets/NOTICES": "c0eaf1721cf32694817390ec299929f7"
 };
 
