@@ -8372,10 +8372,11 @@ return new Y.eg(s,r,C.aj)},
 Mx:function Mx(a,b,c){this.c=a
 this.d=b
 this.a=c},
-VJ:function(a){return new Z.FP(a,null)},
+VJ:function(a,b){return new Z.FP(b,a,null)},
 FQ:function FQ(a){this.b=a},
-FP:function FP(a,b){this.d=a
-this.a=b},
+FP:function FP(a,b,c){this.c=a
+this.d=b
+this.a=c},
 uK:function uK(a,b,c,d,e,f,g,h){var _=this
 _.c=a
 _.d=b
@@ -33473,7 +33474,7 @@ d=L.v("lineageos.org",p,p,p,p,A.ag(p,p,C.aS,p,p,p,p,p,p,p,p,15,p,p,p,p,!0,p,p,p,
 e=M.E(p,T.X(new T.ah(new V.u(15,0,15,0),T.aT(E.d2(L.v("LineageOS is an operating system for smartphones, tablet computers, and set-top boxes, based on Android with mostly free and open-source software. On dahliaOS, Lineage OS powers the Android container, allowing you to use your favorite mobile apps with dahliaOS.",p,p,p,p,A.ag(p,p,new P.f(m),p,p,p,p,p,p,p,p,15,p,p,p,p,!0,p,p,p,p,p,p),p),p,C.y,p,p,C.p),1),p),p,p),p,p,p,p,175,p,p,p,p)
 f=T.X(T.aT(T.X(T.aE(H.a([M.E(p,T.az(H.a([T.X(L.a2(C.ln,new P.f(l),p,28),p,p),T.X(L.v(k,p,p,p,p,p,p),p,p)],h),C.k,C.m,C.h),p,p,p,p,p,p,new V.u(16,16,16,16),p,p),M.E(p,T.az(H.a([T.X(L.a2(C.Kt,C.h1,p,28),p,p),T.X(L.v("General Use",p,p,p,p,p,p),p,p)],h),C.k,C.m,C.h),p,p,p,p,p,p,new V.u(16,16,16,16),p,p),M.E(p,T.az(H.a([T.X(L.a2(C.f9,C.aS,p,28),p,p),T.X(L.v("1.5GB",p,p,p,p,p,p),p,p)],h),C.k,C.m,C.h),p,p,p,p,p,p,new V.u(16,16,16,16),p,p)],h),C.k,C.aZ,C.h),p,p),1),p,p)
 q=C.bK.h(0,500)
-return M.ct(g,p,E.d2(T.az(H.a([a,s,r,T.X(M.E(p,V.ir(T.az(H.a([new T.ah(new V.u(15,15,15,15),b,p),new T.ah(new V.u(15,0,15,10),c,p),new T.ah(new V.u(15,0,15,0),d,p),e,f,new T.bO(C.a_,p,p,T.aE(H.a([new T.ah(new V.u(0,0,20,15),D.dH(L.v(j,p,p,p,p,p,p),q,1,p,p,C.j),p)],h),C.dE,C.cc,C.h),p)],h),C.ax,C.m,C.h),new P.f(n),3,new V.u(10,10,10,10),p),p,p,p,p,p,p,p,p,600),p,p)],h),C.ax,C.m,C.h),p,C.y,new V.u(10,10,10,0),p,C.p),p,Z.VJ(B.ZH(H.a([T.akj(L.v("Containers",p,p,p,p,p,p),new S.bA(C.aS,p,p,p,p,p,C.K)),Q.dS(!1,p,!0,!1,p,new S.Xm(a1),!1,p,L.v("Debian",p,p,p,p,p,p),p),Q.dS(!1,p,!0,!1,p,new S.Xn(a1),!1,p,L.v("Android",p,p,p,p,p,p),p),Q.dS(!1,p,!0,!1,p,new S.Xf(a1),!1,p,L.v(o,p,p,p,p,p,p),p)],h),C.af)),p)}}
+return M.ct(g,p,E.d2(T.az(H.a([a,s,r,T.X(M.E(p,V.ir(T.az(H.a([new T.ah(new V.u(15,15,15,15),b,p),new T.ah(new V.u(15,0,15,10),c,p),new T.ah(new V.u(15,0,15,0),d,p),e,f,new T.bO(C.a_,p,p,T.aE(H.a([new T.ah(new V.u(0,0,20,15),D.dH(L.v(j,p,p,p,p,p,p),q,1,p,p,C.j),p)],h),C.dE,C.cc,C.h),p)],h),C.ax,C.m,C.h),new P.f(n),3,new V.u(10,10,10,10),p),p,p,p,p,p,p,p,p,600),p,p)],h),C.ax,C.m,C.h),p,C.y,new V.u(10,10,10,0),p,C.p),p,Z.VJ(B.ZH(H.a([T.akj(L.v("Containers",p,p,p,p,p,p),new S.bA(C.aS,p,p,p,p,p,C.K)),Q.dS(!1,p,!0,!1,p,new S.Xm(a1),!1,p,L.v("Debian",p,p,p,p,p,p),p),Q.dS(!1,p,!0,!1,p,new S.Xn(a1),!1,p,L.v("Android",p,p,p,p,p,p),p),Q.dS(!1,p,!0,!1,p,new S.Xf(a1),!1,p,L.v(o,p,p,p,p,p,p),p)],h),C.af),16),p)}}
 S.Xl.prototype={
 $0:function(){K.e4(this.a,"/second",t._)},
 $S:0}
@@ -33622,7 +33623,7 @@ o=Q.dS(!1,l,!0,!1,L.a2(C.Kf,C.az,l,l),new Q.a9C(),!1,l,o,l)
 n=L.v("Videos",l,l,l,l,l,l)
 n=Q.dS(!1,l,!0,!1,L.a2(C.Ky,C.az,l,l),new Q.a9D(),!1,l,n,l)
 m=L.v("Music",l,l,l,l,l,l)
-m=M.E(l,Z.VJ(B.ZH(H.a([s,r,q,p,o,n,Q.dS(!1,l,!0,!1,L.a2(C.uH,C.az,l,l),new Q.a9E(),!1,l,m,l)],j),C.af)),C.j,l,l,l,l,l,l,l,250)
+m=M.E(l,Z.VJ(B.ZH(H.a([s,r,q,p,o,n,Q.dS(!1,l,!0,!1,L.a2(C.uH,C.az,l,l),new Q.a9E(),!1,l,m,l)],j),C.af),3),C.j,l,l,l,l,l,l,l,250)
 s=this.d
 if($.SK)s=B.ZH(s,new V.u(10,10,10,10))
 else{r=G.a4V(s,!0,!0,!0)
@@ -33838,7 +33839,7 @@ r=Q.dS(!1,o,!0,!1,L.a2(C.pA,o,o,o),new Z.Xi(b),!1,o,r,o)
 q=L.v("Credits",o,o,o,o,o,o)
 q=Q.dS(!1,o,!0,!1,L.a2(C.uL,o,o,o),new Z.Xj(b),!1,o,q,o)
 p=L.v(k,o,o,o,o,o,o)
-p=Z.VJ(B.ZH(H.a([g,f,s,r,q,Q.dS(!1,o,!0,!1,L.a2(C.lp,o,o,o),new Z.Xk(b),!1,o,p,o)],i),C.af))
+p=Z.VJ(B.ZH(H.a([g,f,s,r,q,Q.dS(!1,o,!0,!1,L.a2(C.lp,o,o,o),new Z.Xk(b),!1,o,p,o)],i),C.af),16)
 q=C.ey.h(0,500)
 return M.ct(j,o,h,new B.tL(T.dz(new T.ah(new V.u(0,0,0,0),V.ir(E.d2(T.aE(H.a([T.X(new T.ah(new V.u(8,8,8,8),L.a2(C.KA,C.H.h(0,900),o,25),o),o,o),T.X(new T.ah(new V.u(8,8,8,8),L.v("WARNING: You are on a pre-release build of dahliaOS. For your protection, wireless networking has been disabled.",o,o,o,o,A.ag(o,o,C.H.h(0,900),o,o,o,o,o,"Roboto",o,o,14,o,o,o,o,!0,o,o,o,o,o,o),o),o),o,o)],i),C.k,C.m,C.h),o,C.y,o,o,C.u),q,0,o,o),o),50,15),new P.f(16777215),o),p,o)}}
 Z.Xg.prototype={
@@ -34314,7 +34315,7 @@ K.e4(s,"/second",t._)},
 $S:0}
 G.qo.prototype={
 v:function(a,b){var s=null,r=4293848814,q=E.db(s,s,s,s,s,s,s,L.v(this.c,s,s,s,s,s,s)),p=T.X(L.v("My Page!",s,s,s,s,s,s),s,s),o=t.t,n=M.E(s,T.aE(H.a([new T.ah(new V.u(10,10,10,10),L.a2(C.lr,new P.f(4294917376),s,s),s),L.v("Settings",s,s,s,s,A.ag(s,s,new P.f(4280427042),s,s,s,s,s,s,s,s,20,s,s,s,s,!0,s,s,s,s,s,s),s)],o),C.k,C.m,C.h),new P.f(r),s,s,s,50,s,s,s,s),m=A.ag(s,s,C.H.h(0,900),s,s,s,s,s,s,s,s,15,s,s,s,s,!0,s,s,s,s,s,s),l=L.vw(s,C.dx,s,s,s,s,s,!0,s,s,s,s,s,s,s,C.cT,s,s,s,!0,s,s,s,s,A.ag(s,s,C.H.h(0,900),s,s,s,s,s,s,s,s,15,s,s,s,s,!0,s,s,s,s,s,s),"Search settings...",s,L.a2(C.lq,C.I2,s,s),!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s)
-return M.ct(q,s,p,s,Z.VJ(T.az(H.a([n,T.aT(E.d2(T.az(H.a([M.E(s,M.E(s,M.dV(C.C,!0,C.tD,M.E(s,T.aE(H.a([T.aT(Z.yi(!0,s,!1,s,$.aqL(),s,s,s,2,l,!0,!0,s,!1,s,s,s,s,s,s,!0,1,s,!1,"\u2022",s,s,s,s,!1,C.f4,s,s,s,s,s,m,C.aB,s,C.iO,s,s,s),1)],o),C.k,C.m,C.h),s,s,s,s,35,new V.u(10,0,5,0),s,s,700),C.F,C.j,5,s,s,s,s,C.aK),s,s,s,s,s,new V.u(0,0,0,10),new V.u(10,0,10,0),s,s),new P.f(r),s,s,s,s,s,s,s,s),G.Cg("WIRELESS & NETWORKS"),G.bZ(C.uI,"Wi-Fi",C.ex.h(0,600),b),G.bZ(C.pw,"Bluetooth",C.bK.h(0,600),b),G.bZ(C.Kp,"Data",C.ce.h(0,500),b),G.bZ(C.Km,"Wired",C.ey.h(0,500),b),G.Cg("DEVICE"),G.bZ(C.JE,"Display",C.ce.h(0,600),b),G.bZ(C.K5,"Input",C.bK.h(0,800),b),G.bZ(C.Kx,"Ports",C.W7.h(0,500),b),G.bZ(C.uO,"Sound",C.W3.h(0,500),b),G.bZ(C.Kr,"Storage",C.bK.h(0,500),b),G.bZ(C.Kg,"Power",C.ey.h(0,500),b),G.bZ(C.JJ,"Devices",C.bK.h(0,800),b),G.Cg("SYSTEM"),G.bZ(C.Ku,"Updates",C.b_.h(0,500),b),G.bZ(C.uK,"Appearance",C.ni.h(0,500),b),G.bZ(C.lm,"Applications",C.W6.h(0,800),b),G.bZ(C.Kd,"Users",C.ex.h(0,800),b),G.bZ(C.Kz,"Privacy",C.AZ.h(0,500),b),G.bZ(C.Jv,"Time",C.b_.h(0,500),b),G.bZ(C.Kl,"Security",C.bK.h(0,500),b),G.bZ(C.JL,"Enterprise Enrollment",C.b_.h(0,500),b),G.bZ(C.lp,"Kernel",C.b_.h(0,500),b),G.bZ(C.uE,"Language",C.b_.h(0,500),b),G.Cg("DEVELOPER"),G.bZ(C.uE,"Flags",C.b_.h(0,500),b),G.bZ(C.px,"Bootloader",C.ni.h(0,500),b),G.bZ(C.JO,"Extensions",C.W8.h(0,500),b),G.bZ(C.je,"Flutter",C.B_.h(0,500),b),G.bZ(C.JA,"System Shell",C.H.h(0,500),b),G.bZ(C.Jx,"Android Subsystem",new P.f(4282243716),b),G.bZ(C.Kc,"System Logs",C.az,b),G.Cg("ABOUT"),G.bZ(C.je,"System",C.b_.h(0,500),b),G.bZ(C.Ke,"Device",C.B_.h(0,500),b),G.bZ(C.uL,"Credits",C.ey.h(0,600),b),G.Cg(" ")],o),C.k,C.m,C.h),s,C.y,s,s,C.p),1)],o),C.k,C.m,C.h)),s)}}
+return M.ct(q,s,p,s,Z.VJ(T.az(H.a([n,T.aT(E.d2(T.az(H.a([M.E(s,M.E(s,M.dV(C.C,!0,C.tD,M.E(s,T.aE(H.a([T.aT(Z.yi(!0,s,!1,s,$.aqL(),s,s,s,2,l,!0,!0,s,!1,s,s,s,s,s,s,!0,1,s,!1,"\u2022",s,s,s,s,!1,C.f4,s,s,s,s,s,m,C.aB,s,C.iO,s,s,s),1)],o),C.k,C.m,C.h),s,s,s,s,35,new V.u(10,0,5,0),s,s,700),C.F,C.j,5,s,s,s,s,C.aK),s,s,s,s,s,new V.u(0,0,0,10),new V.u(10,0,10,0),s,s),new P.f(r),s,s,s,s,s,s,s,s),G.Cg("WIRELESS & NETWORKS"),G.bZ(C.uI,"Wi-Fi",C.ex.h(0,600),b),G.bZ(C.pw,"Bluetooth",C.bK.h(0,600),b),G.bZ(C.Kp,"Data",C.ce.h(0,500),b),G.bZ(C.Km,"Wired",C.ey.h(0,500),b),G.Cg("DEVICE"),G.bZ(C.JE,"Display",C.ce.h(0,600),b),G.bZ(C.K5,"Input",C.bK.h(0,800),b),G.bZ(C.Kx,"Ports",C.W7.h(0,500),b),G.bZ(C.uO,"Sound",C.W3.h(0,500),b),G.bZ(C.Kr,"Storage",C.bK.h(0,500),b),G.bZ(C.Kg,"Power",C.ey.h(0,500),b),G.bZ(C.JJ,"Devices",C.bK.h(0,800),b),G.Cg("SYSTEM"),G.bZ(C.Ku,"Updates",C.b_.h(0,500),b),G.bZ(C.uK,"Appearance",C.ni.h(0,500),b),G.bZ(C.lm,"Applications",C.W6.h(0,800),b),G.bZ(C.Kd,"Users",C.ex.h(0,800),b),G.bZ(C.Kz,"Privacy",C.AZ.h(0,500),b),G.bZ(C.Jv,"Time",C.b_.h(0,500),b),G.bZ(C.Kl,"Security",C.bK.h(0,500),b),G.bZ(C.JL,"Enterprise Enrollment",C.b_.h(0,500),b),G.bZ(C.lp,"Kernel",C.b_.h(0,500),b),G.bZ(C.uE,"Language",C.b_.h(0,500),b),G.Cg("DEVELOPER"),G.bZ(C.uE,"Flags",C.b_.h(0,500),b),G.bZ(C.px,"Bootloader",C.ni.h(0,500),b),G.bZ(C.JO,"Extensions",C.W8.h(0,500),b),G.bZ(C.je,"Flutter",C.B_.h(0,500),b),G.bZ(C.JA,"System Shell",C.H.h(0,500),b),G.bZ(C.Jx,"Android Subsystem",new P.f(4282243716),b),G.bZ(C.Kc,"System Logs",C.az,b),G.Cg("ABOUT"),G.bZ(C.je,"System",C.b_.h(0,500),b),G.bZ(C.Ke,"Device",C.B_.h(0,500),b),G.bZ(C.uL,"Credits",C.ey.h(0,600),b),G.Cg(" ")],o),C.k,C.m,C.h),s,C.y,s,s,C.p),1)],o),C.k,C.m,C.h),16),s)}}
 G.qh.prototype={
 v:function(a,b){var s=null
 return M.ct(E.db(s,s,s,s,s,s,s,L.v("Debian Container",s,s,s,s,s,s)),s,T.X(D.dH(L.v("Go back!",s,s,s,s,s,s),s,s,s,new G.a2R(b),s),s,s),s,s,s)}}
@@ -38357,7 +38358,7 @@ break
 case C.V:case C.a4:case C.a6:case C.a8:r=L.dT(b,C.bu,t.M)
 s=r==null?q:r.gad()
 break
-default:s=q}return T.bp(q,new T.ds(C.E2,M.dV(C.C,!0,q,this.d,C.F,q,16,q,q,q,q,C.aK),q),!1,q,q,!0,q,q,q,q,s,q,q,!0,q,q,q,q,q,q,!0,q,q,q,q)}}
+default:s=q}return T.bp(q,new T.ds(C.E2,M.dV(C.C,!0,q,this.d,C.F,q,this.c,q,q,q,q,C.aK),q),!1,q,q,!0,q,q,q,q,s,q,q,!0,q,q,q,q,q,q,!0,q,q,q,q)}}
 Z.uK.prototype={
 a0:function(){var s=null,r=t.o
 return new Z.oO(O.v9(!0,s,!1),new N.b9(s,r),new N.b9(s,r),s,C.n)},
