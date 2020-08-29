@@ -34069,7 +34069,7 @@ K.dA(s,!1).eX(0,null)
 K.e9(s,"/software",t._)},
 $S:0}
 Z.oy.prototype={
-v:function(a,b){var s=null,r=4278190080,q=E.dt(s,C.j,s,!0,s,new T.cu(C.w,s,s),C.cU,L.z("Build Information",s,s,s,s,A.ag(s,s,C.w,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s)),p=U.fQ("lib/images/logo-color.png",C.p9,32,300),o=L.z("dahliaOS Linux-based 200830  PRE-RELEASE",s,s,s,s,A.ag(s,s,new P.f(r),s,s,s,s,s,s,s,s,14,s,s,s,s,!0,s,s,s,s,s,s),s),n=L.z("Kernel 5.7.19",s,s,s,s,A.ag(s,s,new P.f(r),s,s,s,s,s,s,s,s,14,s,s,s,s,!0,s,s,s,s,s,s),s),m=L.z("Pangolin a0a2eb98c7dd97eefcb7b8a054a29a7f74e18e6a",s,s,s,s,A.ag(s,s,new P.f(r),s,s,s,s,s,s,s,s,14,s,s,s,s,!0,s,s,s,s,s,s),s),l=C.b_.h(0,600)
+v:function(a,b){var s=null,r=4278190080,q=E.dt(s,C.j,s,!0,s,new T.cu(C.w,s,s),C.cU,L.z("Build Information",s,s,s,s,A.ag(s,s,C.w,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s)),p=U.fQ("lib/images/logo-color.png",C.p9,32,300),o=L.z("dahliaOS Linux-based 200830  PRE-RELEASE",s,s,s,s,A.ag(s,s,new P.f(r),s,s,s,s,s,s,s,s,14,s,s,s,s,!0,s,s,s,s,s,s),s),n=L.z("Kernel 5.7.19",s,s,s,s,A.ag(s,s,new P.f(r),s,s,s,s,s,s,s,s,14,s,s,s,s,!0,s,s,s,s,s,s),s),m=L.z("Pangolin e19e26555115591bada8597f45e6a60d989068ad",s,s,s,s,A.ag(s,s,new P.f(r),s,s,s,s,s,s,s,s,14,s,s,s,s,!0,s,s,s,s,s,s),s),l=C.b_.h(0,600)
 return M.cw(q,s,T.X(T.aB(H.a([p,o,n,m,D.dL(L.z("RELEASE NOTES",s,s,s,s,A.ag(s,s,new P.f(4294967295),s,s,s,s,s,s,s,s,14,s,s,s,s,!0,s,s,s,s,s,s),s),l,1,s,new Z.U7(b),s)],t.t),C.k,C.aZ,C.h),s,s),s,s,s)}}
 Z.U7.prototype={
 $0:function(){var s=null,r=N.amD(new N.y0("OK",new Z.U6(),s),s,s,C.rF,L.z("See dahliaos.io for updates",s,s,s,s,s,s),C.J_,s,s,s,s,new V.w(15,0,5,0),s,300)
