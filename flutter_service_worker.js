@@ -44,7 +44,7 @@ const RESOURCES = {
 "assets/lib/localization/languages/pt.json": "e1d87b859bf61e72f1837bf4d31ee980",
 "assets/lib/localization/languages/en.json": "18f50b7e9ac55033fe427c4ff3f6e334",
 "assets/lib/localization/languages/id.json": "fa99f073eaf3ffab79f1bc779d6c27d3",
-"assets/lib/localization/languages/nl.json": "dfa87d07fbba2cdf99bba0b4f606110d",
+"assets/lib/localization/languages/nl.json": "b6b85796b913416b9a899a9ebf5f9f3c",
 "assets/lib/localization/languages/de.json": "44276b5369cefaccd0a7e9115c8aea95",
 "assets/lib/localization/languages/es.json": "e6c9d63ede584416768d1e9d93f7e96f",
 "assets/lib/localization/languages/hr.json": "a4f4a4c5cf1caa2d98f190292c3bfe15",
