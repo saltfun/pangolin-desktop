@@ -6,9 +6,9 @@ const RESOURCES = {
   "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"main.dart.js": "00a9409ed361badd492f92a507c236ae",
-"index.html": "b28a4fa667aecc6a81ce7156a87c6bca",
-"/": "b28a4fa667aecc6a81ce7156a87c6bca",
+"main.dart.js": "08a30718789a92d98431ba65ebafac56",
+"index.html": "23b7ec01954972d8559b6ba7a2912eef",
+"/": "23b7ec01954972d8559b6ba7a2912eef",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "assets/FontManifest.json": "aa27ae11eb5e69d6fbff03ffbf634d42",
 "assets/fonts/MaterialIcons-Regular.otf": "a68d2a28c526b3b070aefca4bac93d25",
@@ -220,21 +220,26 @@ self.addEventListener("fetch", (event) => {
   var origin = self.location.origin;
   var key = event.request.url.substring(origin.length + 1);
   // Redirect URLs to the index.html
-  if (event.request.url == origin || event.request.url.startsWith(origin + '/#')) {
+  if (key.indexOf('?v=') != -1) {
+    key = key.split('?v=')[0];
+  }
+  if (event.request.url == origin || event.request.url.startsWith(origin + '/#') || key == '') {
     key = '/';
   }
   // If the URL is not the RESOURCE list, skip the cache.
   if (!RESOURCES[key]) {
     return event.respondWith(fetch(event.request));
   }
+  // If the URL is the index.html, perform an online-first request.
+  if (key == '/') {
+    return onlineFirst(event);
+  }
   event.respondWith(caches.open(CACHE_NAME)
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache. Ensure the resources are not cached
-        // by the browser for longer than the service worker expects.
-        var modifiedRequest = new Request(event.request, {'cache': 'reload'});
-        return response || fetch(modifiedRequest).then((response) => {
+        // lazily populate the cache.
+        return response || fetch(event.request).then((response) => {
           cache.put(event.request, response.clone());
           return response;
         });
@@ -274,4 +279,26 @@ async function downloadOffline() {
     }
   }
   return contentCache.addAll(resources);
+}
+
+// Attempt to download the resource online before falling back to
+// the offline cache.
+function onlineFirst(event) {
+  return event.respondWith(
+    fetch(event.request).then((response) => {
+      return caches.open(CACHE_NAME).then((cache) => {
+        cache.put(event.request, response.clone());
+        return response;
+      });
+    }).catch((error) => {
+      return caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(event.request).then((response) => {
+          if (response != null) {
+            return response;
+          }
+          throw error;
+        });
+      });
+    })
+  );
 }
