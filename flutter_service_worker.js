@@ -126,11 +126,11 @@ const RESOURCES = {
 "assets/fonts/Cousine/Cousine-BoldItalic.ttf": "1038b5579146b28e9e4dc98c8fc5d1d9",
 "assets/fonts/Cousine/Cousine-Bold.ttf": "06dae6a1a3247bd76125cfe3b3480557",
 "assets/fonts/Cousine/Cousine-Regular.ttf": "64a889644e439ac4806c8e41bc9d1c83",
-"main.dart.js": "8fa362eea2d87456dbc7191a4b7e11bb",
+"main.dart.js": "961d0f371b33f2564c64538122c7fdee",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
-"index.html": "5cdb1e277d5013621252c49055766046",
-"/": "5cdb1e277d5013621252c49055766046",
+"index.html": "6ac74640ca4c0348bf41fa0ddfc4c8ab",
+"/": "6ac74640ca4c0348bf41fa0ddfc4c8ab",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2"
 };
@@ -144,7 +144,6 @@ const CORE = [
 "assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
-
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
   return event.waitUntil(
@@ -165,7 +164,6 @@ self.addEventListener("activate", function(event) {
       var tempCache = await caches.open(TEMP);
       var manifestCache = await caches.open(MANIFEST);
       var manifest = await manifestCache.match('manifest');
-
       // When there is no prior manifest, clear the entire cache.
       if (!manifest) {
         await caches.delete(CACHE_NAME);
@@ -179,7 +177,6 @@ self.addEventListener("activate", function(event) {
         await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
         return;
       }
-
       var oldManifest = await manifest.json();
       var origin = self.location.origin;
       for (var request of await contentCache.keys()) {
@@ -254,7 +251,6 @@ self.addEventListener('message', (event) => {
   if (event.data === 'skipWaiting') {
     return self.skipWaiting();
   }
-
   if (event.message === 'downloadOffline') {
     downloadOffline();
   }
