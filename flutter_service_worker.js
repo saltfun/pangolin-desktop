@@ -126,11 +126,11 @@ const RESOURCES = {
 "assets/fonts/Cousine/Cousine-BoldItalic.ttf": "1038b5579146b28e9e4dc98c8fc5d1d9",
 "assets/fonts/Cousine/Cousine-Bold.ttf": "06dae6a1a3247bd76125cfe3b3480557",
 "assets/fonts/Cousine/Cousine-Regular.ttf": "64a889644e439ac4806c8e41bc9d1c83",
-"main.dart.js": "9c4ca15636428ee0ba72738e7a83a669",
+"main.dart.js": "56c95a6956f9cf0ee04d9fc09037b1d4",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2",
-"index.html": "17280763cf24f7fc0bb69de2f7d9ae22",
-"/": "17280763cf24f7fc0bb69de2f7d9ae22",
+"index.html": "cc307668645152e7365bd8cbfaad60b2",
+"/": "cc307668645152e7365bd8cbfaad60b2",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2"
 };
