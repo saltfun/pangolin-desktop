@@ -4,7 +4,7 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "439728b8f91d45cf2c8a1c2c04100522",
-"main.dart.js": "0f142be8af6a814eef9b0526cdb25910",
+"main.dart.js": "569cbac55746722380ca7de056902cc3",
 "assets/NOTICES": "677477e4bfe32e98fd57580035e53473",
 "assets/FontManifest.json": "aa27ae11eb5e69d6fbff03ffbf634d42",
 "assets/lib/localization/languages/en.json": "18f50b7e9ac55033fe427c4ff3f6e334",
@@ -35,7 +35,7 @@ const RESOURCES = {
 "assets/lib/images/people/faust.png": "85391c85d4fb7379905cd045ab1d5606",
 "assets/lib/images/people/nobody.png": "8ac80de1e2063e5db0fdc2f682635a40",
 "assets/lib/images/minimize.svg": "02136894edcb5f8ffff640ddda3d0c10",
-"assets/lib/images/DahliaLogo.png": "dfa12e46cca782f0723ccfdd80f4a08b",
+"assets/lib/images/dahlialogo.png": "c7040497f3c2f593a3fc7417ca6e782c",
 "assets/lib/images/logo-color.png": "6748a20704842170e7a87088d98d2f22",
 "assets/lib/images/dahlia.png": "a588898d0b4be5e5234723478478badc",
 "assets/lib/images/google_logo.png": "9b224c9884c2bb081d4ac92b23675c2e",
@@ -128,10 +128,10 @@ const RESOURCES = {
 "assets/fonts/SulphurPoint/SulphurPoint-Light.ttf": "45985fd198cf37666bb19a61e15f429c",
 "assets/fonts/SulphurPoint/SulphurPoint-Bold.ttf": "f7c4253323e6d736b886bd813230a5f1",
 "assets/fonts/SulphurPoint/SulphurPoint-Regular.ttf": "fe32d30b047837c9d2af053e9f6539f9",
-"assets/AssetManifest.json": "5af75957638bd735bec2b5ce16138147",
+"assets/AssetManifest.json": "911a2900a2723973eaa11a5206ef3d93",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"index.html": "0b2a5b21e066714e3361ad4a71d3d7cd",
-"/": "0b2a5b21e066714e3361ad4a71d3d7cd",
+"index.html": "fec044deb3d698cbdb2c9479da6d8437",
+"/": "fec044deb3d698cbdb2c9479da6d8437",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2"
