@@ -4,7 +4,7 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "439728b8f91d45cf2c8a1c2c04100522",
-"main.dart.js": "4807d6bed591a68e9c8f6c2576a36d3e",
+"main.dart.js": "17ace9ad74a47f018f3f56ed7ebec515",
 "assets/NOTICES": "677477e4bfe32e98fd57580035e53473",
 "assets/FontManifest.json": "aa27ae11eb5e69d6fbff03ffbf634d42",
 "assets/lib/localization/languages/en.json": "18f50b7e9ac55033fe427c4ff3f6e334",
@@ -130,8 +130,8 @@ const RESOURCES = {
 "assets/fonts/SulphurPoint/SulphurPoint-Regular.ttf": "fe32d30b047837c9d2af053e9f6539f9",
 "assets/AssetManifest.json": "5af75957638bd735bec2b5ce16138147",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"index.html": "44a1528e5f250e77d9fa27b6bdc3463e",
-"/": "44a1528e5f250e77d9fa27b6bdc3463e",
+"index.html": "d0df474b7a4f78d901bbab9fdd100544",
+"/": "d0df474b7a4f78d901bbab9fdd100544",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2"
@@ -148,6 +148,7 @@ const CORE = [
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
+  skipWaiting();
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
@@ -251,10 +252,12 @@ self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
   if (event.data === 'skipWaiting') {
-    return self.skipWaiting();
+    skipWaiting();
+    return;
   }
-  if (event.message === 'downloadOffline') {
+  if (event.data === 'downloadOffline') {
     downloadOffline();
+    return;
   }
 });
 
@@ -299,4 +302,10 @@ function onlineFirst(event) {
       });
     })
   );
+}
+
+function skipWaiting() {
+  if (self.skipWaiting != undefined) {
+    self.skipWaiting();
+  }
 }
