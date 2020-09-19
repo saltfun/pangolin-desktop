@@ -27612,10 +27612,12 @@ iV:function(){var s,r=this,q=r.r
 if(q!=null){s=r.c
 s.toString
 q.e8(s)}if(r.gdn().r!=null){r.pO()
+r.gA3().focus()
+r.c.focus()
 q=r.e
 if(q!=null){s=r.c
 s.toString
-q.e8(s)}r.gA3().focus()}},
+q.e8(s)}}},
 uo:function(){this.c.focus()}}
 H.vQ.prototype={
 sa4Y:function(a){this.c=a},
@@ -35779,7 +35781,7 @@ $R:0,
 $S:0}
 F.a2T.prototype={
 $3:function(a,b,c){var s=null,r=this.a
-return new T.c6(C.a0,s,s,M.E(s,new T.eR(1/0,1/0,T.M(T.a9(H.a([new T.B(new V.r(0,20,20,0),r.z0(C.vv,"Power off","shutdown","-h now"),s),new T.B(new V.r(0,20,20,0),r.z0(C.vw,"Restart","reboot",""),s),new T.B(new V.r(0,20,20,0),r.z0(C.vo,"Terminal","killall","pangolin_desktop"),s)],t.t),C.i,C.aV,C.f),s,s),s),s,s,new S.bh(C.j,s,s,K.cB(10),s,s,C.F),s,90,new V.r(12,0,12,75),s,s,400),s)},
+return new T.c6(C.a0,s,s,M.E(s,new T.eR(1/0,1/0,T.M(T.a9(H.a([new T.B(new V.r(0,20,20,0),r.z0(C.vv,"Power off","poweroff","-f"),s),new T.B(new V.r(0,20,20,0),r.z0(C.vw,"Restart","reboot",""),s),new T.B(new V.r(0,20,20,0),r.z0(C.vo,"Terminal","killall","pangolin_desktop"),s)],t.t),C.i,C.aV,C.f),s,s),s),s,s,new S.bh(C.j,s,s,K.cB(10),s,s,C.F),s,90,new V.r(12,0,12,75),s,s,400),s)},
 $C:"$3",
 $R:3,
 $S:328}
