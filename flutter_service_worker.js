@@ -130,8 +130,8 @@ const RESOURCES = {
 "assets/fonts/SulphurPoint/SulphurPoint-Regular.ttf": "fe32d30b047837c9d2af053e9f6539f9",
 "assets/AssetManifest.json": "911a2900a2723973eaa11a5206ef3d93",
 "favicon.png": "0bbb275c3be676f24451e7680147c8a2",
-"index.html": "0cdc9d2b71dc212fe98a40fc3a48ec5a",
-"/": "0cdc9d2b71dc212fe98a40fc3a48ec5a",
+"index.html": "a7c5f2a350e573ebf34a72682693b307",
+"/": "a7c5f2a350e573ebf34a72682693b307",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bbb275c3be676f24451e7680147c8a2",
 "icons/Icon-192.png": "0bbb275c3be676f24451e7680147c8a2"
