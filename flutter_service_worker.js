@@ -118,8 +118,8 @@ const RESOURCES = {
 "assets/assets/images/icons/v2/compiled/Gmail-icon.png": "dfcbd586c56f73e343b25b3af12491c1",
 "assets/AssetManifest.json": "bfbba6bb6f5f89bd8096e53999f9c87d",
 "favicon.png": "02f1c9f097b0a80bf77544d0a382d990",
-"index.html": "905db5ecaa3986d576178c674bec55d6",
-"/": "905db5ecaa3986d576178c674bec55d6",
+"index.html": "87081d1eceb022e8bc9ebc7aea7ea5ef",
+"/": "87081d1eceb022e8bc9ebc7aea7ea5ef",
 "manifest.json": "8ff5fe849411d088c5084cdf099d07cf",
 "icons/Icon-512.png": "0bd5aff94e7ef56773d3cb06d74973be",
 "icons/Icon-192.png": "16ad25f94af6006cb717fa5552eadcfc"
