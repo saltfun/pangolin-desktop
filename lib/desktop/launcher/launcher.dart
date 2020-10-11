@@ -14,6 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:Pangolin/utils/localization/localization.dart';
 import 'package:Pangolin/utils/widgets/blur.dart';
 import 'package:Pangolin/applications/applications.dart';
@@ -89,43 +92,32 @@ class LauncherState extends State<LauncherWidget> {
                       padding: new EdgeInsets.only(
                           left: 10.0, right: 10.0, top: 5.0),
                       scrollDirection: Axis.horizontal,
-                      child: new Row(children: <Widget>[
-                        buildCard(
-                            Icons.brightness_low,
-                            local.get("launcher_card_system_title"),
-                            Colors.deepOrange,
-                            Colors.deepOrange.withAlpha(30),
-                            local.get("launcher_card_system_value"),
-                            context),
-                        buildCard(
-                            Icons.info,
-                            local.get("launcher_card_information_title"),
-                            Colors.blue,
-                            Colors.blue.withAlpha(30),
-                            local.get("launcher_card_information_value"),
-                            context),
-                        buildCard(
-                            Icons.music_note,
-                            local.get("launcher_card_music_title"),
-                            Colors.lightGreen,
-                            Colors.lightGreen.withAlpha(30),
-                            local.get("launcher_card_music_value"),
-                            context),
-                        buildCard(
-                            Icons.lock,
-                            local.get("launcher_card_security_title"),
-                            Colors.red,
-                            Colors.red.withAlpha(30),
-                            local.get("launcher_card_security_value"),
-                            context),
-                        buildCard(
-                            Icons.memory,
-                            local.get("launcher_card_kernel_title"),
-                            Colors.pink,
-                            Colors.pink.withAlpha(30),
-                            local.get("launcher_card_kernel_value"),
-                            context),
-                      ])),
+                      child: FutureBuilder(
+                        future: File.fromUri(Uri.file("/tmp/dnotify-live.json")).readAsString(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasError) {
+                            return _cardSection(local, context);
+                          } else if (snapshot.hasData) {
+                            List<Widget> rowChildren = [];
+                            List data = jsonDecode(snapshot.data);
+                            for (Map notification in data) {
+                              rowChildren.add(
+                                buildCard(
+                                  Icons.settings_applications, //TODO: make icons dynamic
+                                  notification["title"], 
+                                  Colors.blue[700], //TODO: make color dynamic
+                                  Colors.blue[700], //TODO: make color dynamic
+                                  notification.containsKey("body") ? notification["body"] : "",
+                                  context
+                                )
+                              );
+                            }
+                            return Row(children: rowChildren);
+                          } else {
+                            return _cardSection(local, context);
+                          }
+                        },
+                      )),
                   tileSection(context),
                 ],
               ),
@@ -135,4 +127,44 @@ class LauncherState extends State<LauncherWidget> {
       ),
     );
   }
+}
+
+Widget _cardSection(Localization local, BuildContext context) {
+  return Row(children: <Widget>[
+    buildCard(
+        Icons.brightness_low,
+        local.get("launcher_card_system_title"),
+        Colors.deepOrange,
+        Colors.deepOrange.withAlpha(30),
+        local.get("launcher_card_system_value"),
+        context),
+    buildCard(
+        Icons.info,
+        local.get("launcher_card_information_title"),
+        Colors.blue,
+        Colors.blue.withAlpha(30),
+        local.get("launcher_card_information_value"),
+        context),
+    buildCard(
+        Icons.music_note,
+        local.get("launcher_card_music_title"),
+        Colors.lightGreen,
+        Colors.lightGreen.withAlpha(30),
+        local.get("launcher_card_music_value"),
+        context),
+    buildCard(
+        Icons.lock,
+        local.get("launcher_card_security_title"),
+        Colors.red,
+        Colors.red.withAlpha(30),
+        local.get("launcher_card_security_value"),
+        context),
+    buildCard(
+        Icons.memory,
+        local.get("launcher_card_kernel_title"),
+        Colors.pink,
+        Colors.pink.withAlpha(30),
+        local.get("launcher_card_kernel_value"),
+        context),
+  ]);
 }
