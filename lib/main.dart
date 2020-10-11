@@ -42,12 +42,33 @@ void main() async {
   Pangolin.settingsBox = await Hive.openBox("settings");
   HiveManager.initializeHive();
   DNotifyDaemon.start((data) {
-    var o = OverlayEntry(builder: (context) => DahliaNotification(
-      id: data["id"],
-      title: data["title"],
-      body: data.containsKey("body") ? data["body"] : "",
-      color: Colors.blue[700],
-      source: data["source"],
+    OverlayEntry o;
+    o = OverlayEntry(builder: (context) => Positioned(
+      child: Center(
+        child: SizedBox(
+          width: 350,
+          child: GestureDetector(
+            onTap: () {
+              //onClick;
+              o.remove();
+            },
+            child: MouseRegion(
+              onHover: (event) {
+                //_hover = true;
+              },
+              child: DahliaNotification(
+                id: data["id"],
+                title: data["title"],
+                body: data.containsKey("body") ? data["body"] : "",
+                color: Colors.blue[700],
+                source: data["source"],
+              )
+            ),
+          ),
+        ),
+      ),
+      bottom: 50,
+      right: 5,
     ));
     Pangolin.overlayState.insert(o);
     Pangolin.overlayEntries.add(o);

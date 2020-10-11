@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+import 'package:Pangolin/main.dart';
 import 'package:Pangolin/utils/widgets/system_overlay.dart';
 
 import 'key_ring.dart';
@@ -29,6 +30,7 @@ void hideOverlays({GlobalKey<SystemOverlayState> except}) {
   ].where((GlobalKey<SystemOverlayState> overlay) => overlay != except).forEach(
       (GlobalKey<SystemOverlayState> overlay) =>
           overlay.currentState.visible = false);
+  //Pangolin.overlayEntries.forEach((element) => element.remove());
 }
 
 /// Sets the given [overlay]'s visibility to [visible].

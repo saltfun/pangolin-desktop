@@ -53,19 +53,14 @@ class DahliaNotification extends StatelessWidget {
     else return Dismissible(
         key: GlobalKey(),
         direction: DismissDirection.vertical,
-        confirmDismiss: (d) async {
+        onDismissed: (d) async {
           await DNotify.cancel(id);
-          var f = await File.fromUri(Uri.file("/tmp/dnotify-live.json")).readAsString();
-          var j = jsonDecode(f);
-          var i = j.where((element) => element["id"] == id);
-          return i.length < 1;
+          // var f = await File.fromUri(Uri.file("/tmp/dnotify-live.json")).readAsString();
+          // var j = jsonDecode(f);
+          // var i = j.where((element) => element["id"] == id);
+          // return i.length < 1;
         },
-        onDismissed: (direction) {
-          for (var entry in Pangolin.overlayEntries) {
-            entry.remove();
-          }
-        },
-        child: Container(width:300, height:100, margin: EdgeInsets.all(16), child: Card(
+        child: Card(
           margin: EdgeInsets.symmetric(horizontal: 8.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
@@ -152,6 +147,6 @@ class DahliaNotification extends StatelessWidget {
               ),
             ),
           ),
-        )));
+        ));
   }
 }
