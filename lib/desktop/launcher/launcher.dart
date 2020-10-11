@@ -21,6 +21,7 @@ import 'package:Pangolin/utils/localization/localization.dart';
 import 'package:Pangolin/utils/widgets/blur.dart';
 import 'package:Pangolin/applications/applications.dart';
 import 'package:Pangolin/utils/widgets/cards.dart';
+import 'package:Pangolin/utils/widgets/notification.dart';
 import 'package:flutter/material.dart';
 import 'searchbar.dart';
 import 'dart:ui';
@@ -29,6 +30,8 @@ class LauncherWidget extends StatefulWidget {
   @override
   LauncherState createState() => LauncherState();
 }
+
+GlobalKey<State<FutureBuilder>> _activeNotifications = GlobalKey();
 
 MaterialButton buildTile(String icon, String label) {
   return MaterialButton(
@@ -62,6 +65,7 @@ MaterialButton buildTile(String icon, String label) {
 }
 
 class LauncherState extends State<LauncherWidget> {
+  bool _isWatching = false;
   @override
   Widget build(BuildContext context) {
     Localization local = Localization.of(context);
@@ -93,6 +97,7 @@ class LauncherState extends State<LauncherWidget> {
                           left: 10.0, right: 10.0, top: 5.0),
                       scrollDirection: Axis.horizontal,
                       child: FutureBuilder(
+                        key: _activeNotifications,
                         future: File.fromUri(Uri.file("/tmp/dnotify-live.json")).readAsString(),
                         builder: (context, snapshot) {
                           if (snapshot.hasError) {
@@ -102,17 +107,18 @@ class LauncherState extends State<LauncherWidget> {
                             List data = jsonDecode(snapshot.data);
                             for (Map notification in data) {
                               rowChildren.add(
-                                buildCard(
-                                  Icons.settings_applications, //TODO: make icons dynamic
-                                  notification["title"], 
-                                  Colors.blue[700], //TODO: make color dynamic
-                                  Colors.blue[700], //TODO: make color dynamic
-                                  notification.containsKey("body") ? notification["body"] : "",
-                                  context
+                                DahliaNotification(
+                                  //icon: Icons.settings_applications, //TODO: make icons dynamic
+                                  title: notification["title"], 
+                                  color: Colors.blue[700], //TODO: make color dynamic
+                                  body: notification.containsKey("body") ? notification["body"] : "",
+                                  id: notification["id"],
+                                  source: notification["source"],
                                 )
                               );
                             }
-                            return Row(children: rowChildren);
+                            if (rowChildren.length > 0) return Row(children: rowChildren);
+                            else return Container(height: 100);
                           } else {
                             return _cardSection(local, context);
                           }

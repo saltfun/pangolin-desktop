@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 import 'package:Pangolin/utils/widgets/notification.dart';
+import 'package:dnotify/dnotify.dart';
 import 'package:flutter/material.dart';
 import '../../main.dart';
 import 'dart:io';
@@ -92,11 +93,17 @@ class _DeveloperAppPageState extends State<DeveloperAppPage> {
                     child: Text('Clear local Database')),
                 RaisedButton(
                     onPressed: () {
-                      DahliaNotification.showNotification(
-                          "System Update",
-                          "There is a new Update available \nPress to start Installation",
-                          Icons.notifications,
-                          () {});
+                      // DahliaNotification.showNotification(
+                      //     "System Update",
+                      //     "There is a new Update available \nPress to start Installation",
+                      //     Icons.notifications,
+                      //     () {});
+                      DNotify.send(
+                        "System Update", 
+                        "There is a new Update available \nPress to start Installation",
+                        icon: "md:notifications",
+                        priority: 3,
+                      );
                     },
                     child: Text('Show Test Notification')),
               ],
