@@ -116,11 +116,9 @@ packages:
   dnotify:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "73dbe2919dc95ab3f8d82ae583b858c5d8197911"
-      url: "https://github.com/bleonard252/dnotify.git"
-    source: git
+      path: "../dnotify"
+      relative: true
+    source: path
     version: "1.0.0-alpha.1"
   expressions:
     dependency: "direct main"

@@ -13,6 +13,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+import 'package:Pangolin/utils/widgets/notification.dart';
+import 'package:dnotify/dnotify.dart';
 import 'package:flutter/services.dart';
 
 import 'package:Pangolin/desktop/desktop.dart';
@@ -39,6 +41,17 @@ void main() async {
   await Hive.initFlutter();
   Pangolin.settingsBox = await Hive.openBox("settings");
   HiveManager.initializeHive();
+  DNotifyDaemon.start((data) {
+    var o = OverlayEntry(builder: (context) => DahliaNotification(
+      id: data["id"],
+      title: data["title"],
+      body: data.containsKey("body") ? data["body"] : "",
+      color: Colors.blue[700],
+      source: data["source"],
+    ));
+    Pangolin.overlayState.insert(o);
+    Pangolin.overlayEntries.add(o);
+  });
   runApp(Pangolin());
 }
 
@@ -47,6 +60,7 @@ class Pangolin extends StatefulWidget {
   _PangolinState createState() => _PangolinState();
 
   static OverlayState overlayState;
+  static List<OverlayEntry> overlayEntries = [];
 
   static void setLocale(BuildContext context, Locale locale) {
     _PangolinState state = context.findAncestorStateOfType<_PangolinState>();

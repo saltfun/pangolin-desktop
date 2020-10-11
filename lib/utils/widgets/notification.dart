@@ -13,6 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:Pangolin/main.dart';
 import 'package:dnotify/dnotify.dart';
 import 'package:flutter/material.dart';
 
@@ -45,11 +49,23 @@ class DahliaNotification extends StatelessWidget {
   }) : this.color = color != null ? color : Colors.blue[700], super(key: key);
 
   Widget build(BuildContext context) {
-    return Dismissible(
-        key: Key("dnotify-" + id),
+    if (id == null) return Container(height: 0);
+    else return Dismissible(
+        key: GlobalKey(),
         direction: DismissDirection.vertical,
-        onDismissed: (d) => DNotify.cancel(id),
-        child: Card(
+        confirmDismiss: (d) async {
+          await DNotify.cancel(id);
+          var f = await File.fromUri(Uri.file("/tmp/dnotify-live.json")).readAsString();
+          var j = jsonDecode(f);
+          var i = j.where((element) => element["id"] == id);
+          return i.length < 1;
+        },
+        onDismissed: (direction) {
+          for (var entry in Pangolin.overlayEntries) {
+            entry.remove();
+          }
+        },
+        child: Container(width:300, height:100, margin: EdgeInsets.all(16), child: Card(
           margin: EdgeInsets.symmetric(horizontal: 8.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
@@ -136,6 +152,6 @@ class DahliaNotification extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        )));
   }
 }

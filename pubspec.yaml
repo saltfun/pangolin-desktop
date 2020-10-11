@@ -22,6 +22,11 @@ dependencies:
     git: https://github.com/bleonard252/dnotify.git
 #Useful in an ideal future but not now.  random_color: ^1.0.5
 
+dependency_overrides:
+  dnotify:
+    path: ../dnotify
+
+
 dev_dependencies:
   mockito:
   json_serializable: ^2.0.0
