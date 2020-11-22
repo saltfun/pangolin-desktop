@@ -4,7 +4,7 @@ import 'package:Pangolin/utils/widgets/hover.dart';
 import 'package:flutter/material.dart';
 
 class SettingsHome extends StatefulWidget {
-  const SettingsHome({Key key}) : super(key: key);
+  const SettingsHome({Key? key}) : super(key: key);
 
   @override
   _SettingsHomeState createState() => _SettingsHomeState();
@@ -32,7 +32,7 @@ class _SettingsHomeState extends State<SettingsHome> {
                         //elevation: 5.0,
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushNamed("/search");
+                            Navigator.of(context)?.pushNamed("/search");
                           },
                           child: new Container(
                             width: MediaQuery.of(context).size.width * 0.90,
@@ -53,7 +53,7 @@ class _SettingsHomeState extends State<SettingsHome> {
                                         hintStyle: TextStyle(
                                           color: Theme.of(context)
                                               .textTheme
-                                              .bodyText1
+                                              .bodyText1!
                                               .color,
                                           fontSize: 15,
                                         ),
@@ -77,7 +77,7 @@ class _SettingsHomeState extends State<SettingsHome> {
                   ),
                 ] +
                 List.generate(
-                  Settings.items.length,
+                  Settings.items!.length,
                   (index) => Container(
                     margin: EdgeInsets.symmetric(horizontal: 5, vertical: 20),
                     width: 300,
@@ -93,12 +93,13 @@ class _SettingsHomeState extends State<SettingsHome> {
                           child: Center(
                             child: ListTile(
                                 dense: true,
-                                title: Text(Settings.items[index].title,
+                                title: Text(Settings.items![index].title!,
                                     style:
                                         Theme.of(context).textTheme.bodyText1),
-                                subtitle: Text(Settings.items[index].subtitle),
+                                subtitle:
+                                    Text(Settings.items![index].subtitle!),
                                 leading: Icon(
-                                  Settings.items[index].icon,
+                                  Settings.items![index].icon,
                                   size: 35,
                                   color: Color(
                                       HiveManager.get("accentColorValue")),

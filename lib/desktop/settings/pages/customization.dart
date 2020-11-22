@@ -77,52 +77,52 @@ class _CustomizationState extends State<Customization> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   buildAcctenColorButton(
-                                      Colors.deepOrangeAccent[400], () {
+                                      Colors.deepOrangeAccent[400]!, () {
                                     setState(() {
                                       notifier.changeThemeColor(
-                                          Colors.deepOrangeAccent[400]);
+                                          Colors.deepOrangeAccent[400]!);
                                     });
                                   }, "Orange"),
-                                  buildAcctenColorButton(Colors.redAccent[700],
+                                  buildAcctenColorButton(Colors.redAccent[700]!,
                                       () {
                                     setState(() {
                                       notifier.changeThemeColor(
-                                          Colors.redAccent[700]);
+                                          Colors.redAccent[700]!);
                                     });
                                   }, "Red"),
                                   buildAcctenColorButton(
-                                      Colors.greenAccent[700], () {
+                                      Colors.greenAccent[700]!, () {
                                     setState(() {
                                       notifier.changeThemeColor(
-                                          Colors.greenAccent[700]);
+                                          Colors.greenAccent[700]!);
                                     });
                                   }, "Green"),
-                                  buildAcctenColorButton(Colors.blueAccent[700],
-                                      () {
+                                  buildAcctenColorButton(
+                                      Colors.blueAccent[700]!, () {
                                     setState(() {
                                       notifier.changeThemeColor(
-                                          Colors.blueAccent[700]);
+                                          Colors.blueAccent[700]!);
                                     });
                                   }, "Blue"),
                                   buildAcctenColorButton(
-                                      Colors.purpleAccent[700], () {
+                                      Colors.purpleAccent[700]!, () {
                                     setState(() {
                                       notifier.changeThemeColor(
-                                          Colors.purpleAccent[700]);
+                                          Colors.purpleAccent[700]!);
                                     });
                                   }, "Purple"),
-                                  buildAcctenColorButton(Colors.cyanAccent[700],
-                                      () {
+                                  buildAcctenColorButton(
+                                      Colors.cyanAccent[700]!, () {
                                     setState(() {
                                       notifier.changeThemeColor(
-                                          Colors.cyanAccent[700]);
+                                          Colors.cyanAccent[700]!);
                                     });
                                   }, "Cyan"),
                                   buildAcctenColorButton(
-                                      Colors.amberAccent[700], () {
+                                      Colors.amberAccent[700]!, () {
                                     setState(() {
                                       notifier.changeThemeColor(
-                                          Colors.amberAccent[700]);
+                                          Colors.amberAccent[700]!);
                                     });
                                   }, "Amber"),
                                   buildAcctenColorButton(
@@ -417,7 +417,7 @@ class _CustomizationState extends State<Customization> {
                                         new FlatButton(
                                           child: new Text("No"),
                                           onPressed: () {
-                                            Navigator.of(context).pop();
+                                            Navigator.of(context)?.pop();
                                           },
                                         ),
                                         new FlatButton(
@@ -454,7 +454,7 @@ class _CustomizationState extends State<Customization> {
   Color currentColor = Color(0xff443a49);
 
   GestureDetector buildAcctenColorButton(
-      Color color, Function onTap, String name) {
+      Color color, void Function() onTap, String name) {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -486,7 +486,7 @@ class _CustomizationState extends State<Customization> {
 
 class WallpaperChooser extends StatefulWidget {
   const WallpaperChooser({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -550,7 +550,7 @@ class _WallpaperChooserState extends State<WallpaperChooser> {
           child: new Text("Close"),
           onPressed: () {
             Customization.selectedWallpaper = HiveManager.get("wallpaper");
-            Navigator.of(context).pop();
+            Navigator.of(context)?.pop();
           },
         ),
         new FlatButton(
@@ -558,7 +558,7 @@ class _WallpaperChooserState extends State<WallpaperChooser> {
           onPressed: () {
             HiveManager.set("wallpaper", Customization.selectedWallpaper);
             print(HiveManager.get("wallpaper"));
-            Navigator.of(context).pop();
+            Navigator.of(context)?.pop();
           },
         ),
       ],

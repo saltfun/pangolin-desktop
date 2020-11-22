@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 
 class SearchWidget extends StatelessWidget implements PreferredSizeWidget {
   final TextEditingController editingController = new TextEditingController();
-  BuildContext _context;
+  BuildContext? _context;
 
   @override
   Widget build(BuildContext context) {

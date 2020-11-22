@@ -115,12 +115,12 @@ class Messages extends StatelessWidget {
 bool viewTypeList = false;
 
 class Folder extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final Function onClick;
+  final IconData? icon;
+  final String? label;
+  final Function? onClick;
 
   const Folder({
-    Key key,
+    Key? key,
     @required this.icon,
     @required this.label,
     @required this.onClick,
@@ -146,7 +146,7 @@ class Folder extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      label,
+                      label!,
                       style: TextStyle(color: Colors.grey[900]),
                       textAlign: TextAlign.center,
                     ),
@@ -173,7 +173,7 @@ class Folder extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(top: 5),
                       child: Text(
-                        label,
+                        label!,
                         style: TextStyle(color: Colors.grey[900]),
                         textAlign: TextAlign.center,
                       ),
@@ -187,7 +187,7 @@ class Folder extends StatelessWidget {
 }
 
 class MessagesHome extends StatefulWidget {
-  MessagesHome({Key key}) : super(key: key);
+  MessagesHome({Key? key}) : super(key: key);
   @override
   _MessagesHomeState createState() => new _MessagesHomeState();
 }

@@ -49,16 +49,16 @@ class Pangolin extends StatefulWidget {
   @override
   _PangolinState createState() => _PangolinState();
 
-  static OverlayState overlayState;
+  static OverlayState? overlayState;
 
   static void setLocale(BuildContext context, Locale locale) {
-    _PangolinState state = context.findAncestorStateOfType<_PangolinState>();
+    _PangolinState state = context.findAncestorStateOfType<_PangolinState>()!;
     state.setLocale(locale);
   }
 
-  static Box<dynamic> settingsBox;
-  static Locale locale;
-  static ThemeData theme;
+  static Box<dynamic>? settingsBox;
+  static Locale? locale;
+  static ThemeData? theme;
 }
 
 class _PangolinState extends State<Pangolin> {
@@ -66,16 +66,16 @@ class _PangolinState extends State<Pangolin> {
   void initState() {
     getLangFromHive() {
       Pangolin.settingsBox = Hive.box("settings");
-      if (Pangolin.settingsBox.get("language").toString().length < 5) {
-        Pangolin.settingsBox.delete("language");
+      if (Pangolin.settingsBox!.get("language").toString().length < 5) {
+        Pangolin.settingsBox!.delete("language");
       }
-      if (Pangolin.settingsBox.get("language") == null) {
+      if (Pangolin.settingsBox!.get("language") == null) {
         print("No locale found");
         Pangolin.locale = Locale("en", "US");
-        Pangolin.settingsBox.put("language", "en_US");
+        Pangolin.settingsBox!.put("language", "en_US");
       } else {
         List<String> _selLangFromHive =
-            Pangolin.settingsBox.get("language").toString().split("_");
+            Pangolin.settingsBox!.get("language").toString().split("_");
         print(_selLangFromHive);
         Pangolin.locale = Locale(_selLangFromHive[0], _selLangFromHive[1]);
       }

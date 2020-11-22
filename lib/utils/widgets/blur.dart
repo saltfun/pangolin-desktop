@@ -4,10 +4,10 @@ import 'package:Pangolin/utils/hiveManager.dart';
 import 'package:flutter/material.dart';
 
 class Blur extends StatefulWidget {
-  Widget child;
-  BorderRadius borderRadius;
-  double blurRadius;
-  Blur({Key key, @required this.child, borderRadius, blurRadius})
+  Widget? child;
+  BorderRadius? borderRadius;
+  double? blurRadius;
+  Blur({Key? key, @required this.child, borderRadius, blurRadius})
       : super(key: key);
 
   @override
@@ -27,7 +27,7 @@ class _BlurState extends State<Blur> {
                 ? ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0)
                 : ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0))
             : ImageFilter.blur(
-                sigmaX: widget.blurRadius, sigmaY: widget.blurRadius)),
+                sigmaX: widget.blurRadius!, sigmaY: widget.blurRadius!)),
         child: widget.child,
       ),
     );

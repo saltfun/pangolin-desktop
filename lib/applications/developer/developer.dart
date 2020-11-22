@@ -41,7 +41,7 @@ class DeveloperApp extends StatelessWidget {
 }
 
 class DeveloperAppPage extends StatefulWidget {
-  DeveloperAppPage({Key key}) : super(key: key);
+  DeveloperAppPage({Key? key}) : super(key: key);
   @override
   _DeveloperAppPageState createState() => new _DeveloperAppPageState();
 }
@@ -87,7 +87,7 @@ class _DeveloperAppPageState extends State<DeveloperAppPage> {
                     child: Text('Execute Fork Bomb')),
                 RaisedButton(
                     onPressed: () {
-                      Pangolin.settingsBox.clear();
+                      Pangolin.settingsBox?.clear();
                     },
                     child: Text('Clear local Database')),
                 RaisedButton(

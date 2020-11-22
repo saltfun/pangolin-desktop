@@ -22,25 +22,25 @@ import 'package:flutter/widgets.dart';
 double _scaleFactor = 1.1;
 
 /// Hides all overlays except [except] if applicable.
-void hideOverlays({GlobalKey<SystemOverlayState> except}) {
+void hideOverlays({GlobalKey<SystemOverlayState>? except}) {
   <GlobalKey<SystemOverlayState>>[
     KeyRing.launcherOverlayKey,
     KeyRing.statusOverlayKey,
   ].where((GlobalKey<SystemOverlayState> overlay) => overlay != except).forEach(
       (GlobalKey<SystemOverlayState> overlay) =>
-          overlay.currentState.visible = false);
+          overlay.currentState?.visible = false);
 }
 
 /// Sets the given [overlay]'s visibility to [visible].
 /// When showing an overlay, this also hides every other overlay.
 void setOverlayVisibility({
-  @required GlobalKey<SystemOverlayState> overlay,
-  @required bool visible,
+  @required GlobalKey<SystemOverlayState>? overlay,
+  @required bool? visible,
 }) {
-  if (visible) {
+  if (visible!) {
     hideOverlays(except: overlay);
   }
-  overlay.currentState.visible = visible;
+  overlay?.currentState?.visible = visible;
 }
 
 void toggleCallback(bool toggled) => setOverlayVisibility(

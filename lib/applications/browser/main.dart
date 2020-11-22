@@ -89,14 +89,14 @@ class Desktop extends StatelessWidget {
 }
 
 class Browser extends StatefulWidget {
-  Browser({Key key}) : super(key: key);
+  Browser({Key? key}) : super(key: key);
   @override
   BrowserState createState() => new BrowserState();
 }
 
 class BrowserState extends State<Browser> with TickerProviderStateMixin {
   List<Tab> tabs = [];
-  TabController tabController;
+  TabController? tabController;
   var count = 1;
   void newTab() {
     setState(() {
@@ -128,7 +128,7 @@ class BrowserState extends State<Browser> with TickerProviderStateMixin {
 
   void closeCurrentTab() {
     setState(() {
-      tabs.removeAt(tabController.index);
+      tabs.removeAt(tabController!.index);
       tabController = TabController(length: tabs.length, vsync: this);
     });
   }
@@ -162,7 +162,7 @@ class BrowserState extends State<Browser> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    tabController.dispose();
+    tabController?.dispose();
     super.dispose();
   }
 

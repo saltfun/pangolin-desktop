@@ -45,7 +45,7 @@ class Containers extends StatelessWidget {
 }
 
 class ContainersApp extends StatefulWidget {
-  ContainersApp({Key key}) : super(key: key);
+  ContainersApp({Key? key}) : super(key: key);
   @override
   _ContainersAppState createState() => new _ContainersAppState();
 }
@@ -794,7 +794,8 @@ class SecondScreen extends StatelessWidget {
                                                 FlatButton(
                                                   child: Text('OK'),
                                                   onPressed: () {
-                                                    Navigator.of(context).pop();
+                                                    Navigator.of(context)
+                                                        ?.pop();
                                                   },
                                                 ),
                                               ],

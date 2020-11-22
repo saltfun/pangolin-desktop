@@ -23,15 +23,15 @@ import 'package:provider/provider.dart';
 import 'package:flutter/rendering.dart';
 
 class AppLauncherButton extends StatefulWidget {
-  final Widget app;
-  final String icon;
+  final Widget? app;
+  final String? icon;
   final bool appExists;
   final bool customBar;
   final double childHeight;
   final double childWidth;
-  final String label;
+  final String? label;
   final AppLauncherButtonType type;
-  final Color color;
+  final Color? color;
   final ValueChanged<bool> _callback;
 
   AppLauncherButton(
@@ -95,10 +95,10 @@ class AppLauncherButtonState extends State<AppLauncherButton> {
                         widget.appExists
                             ? Provider.of<WindowsData>(context, listen: false)
                                 .add(
-                                    child: widget.app,
+                                    child: widget.app!,
                                     color: HiveManager.get("coloredTitlebar")
-                                        ? widget.color
-                                        : Colors.grey[900])
+                                        ? widget.color!
+                                        : Colors.grey[900]!)
                             : showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
@@ -113,21 +113,21 @@ class AppLauncherButtonState extends State<AppLauncherButton> {
                                         new FlatButton(
                                             child: new Text("OK"),
                                             onPressed: () {
-                                              Navigator.of(context).pop();
+                                              Navigator.of(context)?.pop();
                                             })
                                       ]);
                                 });
                       },
                       onLongPress: () {
                         Provider.of<WindowsData>(context, listen: false)
-                            .windows
+                            .windows!
                             .forEach((element) {
                           print(element.id);
                         });
                       },
                       child: Container(
                         child: Image.asset(
-                          widget.icon,
+                          widget.icon!,
                           fit: BoxFit.contain,
                           width: (widget.type == AppLauncherButtonType.Drawer)
                               ? 64.0
@@ -143,7 +143,7 @@ class AppLauncherButtonState extends State<AppLauncherButton> {
                       ? Padding(
                           padding: const EdgeInsets.only(top: 8.0),
                           child: Text(
-                            widget.label,
+                            widget.label!,
                             style: TextStyle(
                               fontSize: 15.0,
                               fontWeight: FontWeight.w400,

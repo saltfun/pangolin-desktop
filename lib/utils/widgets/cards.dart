@@ -41,7 +41,7 @@ class SysInfoCard extends StatelessWidget {
                   new FlatButton(
                     child: new Text("OK"),
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      Navigator.of(context)?.pop();
                     },
                   ),
                 ],
@@ -113,7 +113,7 @@ class NewsCard extends StatelessWidget {
                   new FlatButton(
                     child: new Text("OK"),
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      Navigator.of(context)?.pop();
                     },
                   ),
                 ],
@@ -185,7 +185,7 @@ Card buildCard(IconData icon, String title, Color color, Color splash,
                 new FlatButton(
                   child: new Text("OK"),
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.of(context)?.pop();
                   },
                 ),
               ],

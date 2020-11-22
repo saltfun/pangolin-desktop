@@ -38,7 +38,7 @@ class RootTerminalApp extends StatelessWidget {
 }
 
 class RootTerminal extends StatefulWidget {
-  RootTerminal({Key key}) : super(key: key);
+  RootTerminal({Key? key}) : super(key: key);
   @override
   RootTerminalState createState() => new RootTerminalState();
 }
@@ -46,7 +46,7 @@ class RootTerminal extends StatefulWidget {
 class RootTerminalState extends State<RootTerminal>
     with TickerProviderStateMixin {
   List<Tab> tabs = [];
-  TabController tabController;
+  TabController? tabController;
   var count = 1;
   void newTab() {
     setState(() {
@@ -78,7 +78,7 @@ class RootTerminalState extends State<RootTerminal>
 
   void closeCurrentTab() {
     setState(() {
-      tabs.removeAt(tabController.index);
+      tabs.removeAt(tabController!.index);
       tabController = TabController(length: tabs.length, vsync: this);
     });
   }
@@ -112,7 +112,7 @@ class RootTerminalState extends State<RootTerminal>
 
   @override
   void dispose() {
-    tabController.dispose();
+    tabController!.dispose();
     super.dispose();
   }
 

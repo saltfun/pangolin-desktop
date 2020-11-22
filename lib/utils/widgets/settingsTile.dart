@@ -16,9 +16,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SettingsTile extends StatelessWidget {
-  final List<Widget> children;
-  final EdgeInsetsGeometry margin;
-  const SettingsTile({Key key, @required this.children, this.margin})
+  final List<Widget>? children;
+  final EdgeInsetsGeometry? margin;
+  const SettingsTile({Key? key, @required this.children, this.margin})
       : super(key: key);
 
   @override
@@ -42,7 +42,7 @@ class SettingsTile extends StatelessWidget {
               margin: this.margin,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: this.children,
+                children: this.children!,
               ),
             ),
           ),

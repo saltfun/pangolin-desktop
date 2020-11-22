@@ -24,29 +24,29 @@ typedef void WindowInteractionCallback();
 /// A window container
 class Window extends StatefulWidget {
   /// The window's initial position.
-  final Offset initialPosition;
+  final Offset? initialPosition;
 
   /// The window's initial size.
-  final Size initialSize;
+  final Size? initialSize;
 
   /// Called when the user started interacting with this window.
-  final WindowInteractionCallback onWindowInteraction;
+  final WindowInteractionCallback? onWindowInteraction;
 
   /// Called when the user clicks close button in this window.
-  final WindowInteractionCallback onWindowClose;
+  final WindowInteractionCallback? onWindowClose;
 
   /// The window's child.
-  final dynamic child;
+  final dynamic? child;
 
   /// The window's theme color.
-  final Color color;
+  final Color? color;
 
   /// The window's custom bar, if there is one.
-  Widget customBar;
+  Widget? customBar;
 
   /// Constructor.
   Window({
-    Key key,
+    Key? key,
     this.onWindowInteraction,
     this.onWindowClose,
     this.initialPosition: Offset.zero,
@@ -64,16 +64,16 @@ enum WindowMode { NORMAL_MODE, MAXIMIZE_MODE, MINIMIZE_MODE }
 
 class WindowState extends State<Window> {
   /// The window's position.
-  Offset _position;
+  Offset? _position;
 
   /// The window's position before maximizing.
-  Offset _prePosition;
+  Offset? _prePosition;
 
   /// The window's size.
-  Size _size;
+  Size? _size;
 
   /// The window's size before maximizing.
-  Size _preSize;
+  Size? _preSize;
 
   /// The windows's current mode.
   WindowMode _windowMode = WindowMode.NORMAL_MODE;
@@ -82,7 +82,7 @@ class WindowState extends State<Window> {
   dynamic _child;
 
   /// The window's color.
-  Color _color;
+  Color? _color;
 
   /// The window's minimum height.
   final double _minHeight = 300.0;
@@ -94,7 +94,7 @@ class WindowState extends State<Window> {
   final FocusNode _focusNode = new FocusNode();
 
   /// Control is an illusion so let's make it a big one
-  FocusAttachment _focusAttachment;
+  FocusAttachment? _focusAttachment;
 
   static bool isMaximized = false;
 
@@ -110,7 +110,7 @@ class WindowState extends State<Window> {
 
   @override
   void dispose() {
-    _focusAttachment.detach();
+    _focusAttachment?.detach();
     _focusNode.dispose();
     super.dispose();
   }
@@ -229,7 +229,7 @@ class WindowState extends State<Window> {
         WindowData model,
       ) {
         // Make sure the focus tree is properly updated.
-        _focusAttachment.reparent();
+        _focusAttachment?.reparent();
         /*if (model.tabs.length == 1 && model.tabs[0].id == _draggedTabId) {
           // If the lone tab is being dragged, hide this window.
           return new Container();
@@ -259,8 +259,8 @@ class WindowState extends State<Window> {
           });
         } catch (e) {}
         return Positioned(
-          left: _position.dx,
-          top: _position.dy,
+          left: _position?.dx,
+          top: _position?.dy,
           child: GestureDetector(
             onTapDown: (_) => _registerInteraction(),
             child:
@@ -277,7 +277,7 @@ class WindowState extends State<Window> {
                   GestureDetector(
                     onPanUpdate: (DragUpdateDetails details) {
                       setState(() {
-                        var _newSize = _size + details.delta;
+                        var _newSize = _size! + details.delta;
                         if (_newSize.width >= _minWidth &&
                             _newSize.height >= _minHeight)
                           _size += details.delta;
@@ -287,18 +287,18 @@ class WindowState extends State<Window> {
                       opacity: 0.8,
                       child: Container(
                         width: (_windowMode == WindowMode.MAXIMIZE_MODE)
-                            ? _size.width
-                            : _size.width + 20,
+                            ? _size!.width
+                            : _size!.width + 20,
                         height: (_windowMode == WindowMode.MAXIMIZE_MODE)
-                            ? _size.height
-                            : _size.height + 20,
+                            ? _size!.height
+                            : _size!.height + 20,
                         //color: Colors.blueAccent,
                       ),
                     ),
                   ),
                   Container(
-                    width: _size.width,
-                    height: _size.height,
+                    width: _size!.width,
+                    height: _size!.height,
                     constraints: BoxConstraints(
                         minWidth: _minWidth, minHeight: _minHeight), //
                     decoration:
@@ -408,8 +408,8 @@ class WindowState extends State<Window> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: hoverClose
-                  ? Colors.grey[800].withOpacity(0.3)
-                  : Colors.grey[800].withOpacity(0.0),
+                  ? Colors.grey[800]!.withOpacity(0.3)
+                  : Colors.grey[800]!.withOpacity(0.0),
             ),
             child: Icon(Icons.close, color: Colors.white, size: 20)),
       ),
@@ -459,8 +459,8 @@ class WindowState extends State<Window> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: hoverMaximize
-                  ? Colors.grey[800].withOpacity(0.3)
-                  : Colors.grey[800].withOpacity(0.0),
+                  ? Colors.grey[800]!.withOpacity(0.3)
+                  : Colors.grey[800]!.withOpacity(0.0),
             ),
             child:
                 Icon(Icons.crop_square_sharp, color: Colors.white, size: 20)),
@@ -468,7 +468,7 @@ class WindowState extends State<Window> {
     );
   }
 
-  Offset oldPosition;
+  Offset? oldPosition;
 
   MouseRegion minimizeButton() {
     return MouseRegion(
@@ -486,7 +486,7 @@ class WindowState extends State<Window> {
         onTap: () {
           setState(() {
             oldPosition = _position;
-            _position = Offset(oldPosition.dx, 5000);
+            _position = Offset(oldPosition!.dx, 5000);
           });
         },
         child: Container(
@@ -495,19 +495,19 @@ class WindowState extends State<Window> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: hoverUpDown
-                  ? Colors.grey[800].withOpacity(0.3)
-                  : Colors.grey[800].withOpacity(0.0),
+                  ? Colors.grey[800]!.withOpacity(0.3)
+                  : Colors.grey[800]!.withOpacity(0.0),
             ),
             child: Icon(Icons.minimize, color: Colors.white, size: 20)),
       ),
     );
   }
 
-  String _tilingMode;
+  String? _tilingMode;
 
-  OverlayEntry _overlayEntry;
+  OverlayEntry? _overlayEntry;
   showOverlay(BuildContext context) async {
-    OverlayState overlayState = Overlay.of(context);
+    OverlayState? overlayState = Overlay.of(context);
     _overlayEntry = OverlayEntry(
         builder: (context) => Positioned(
               child: Center(
@@ -613,7 +613,7 @@ class WindowState extends State<Window> {
               left: getPositionX() - 40,
             ));
 
-    overlayState.insert(_overlayEntry);
+    overlayState!.insert(_overlayEntry!);
   }
 
   getPositionX() {

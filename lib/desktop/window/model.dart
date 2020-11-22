@@ -60,9 +60,9 @@ class WindowId {
 /// Data associated with a window.
 class WindowData extends Model {
   /// The window's id.
-  final WindowId id;
-  final Widget child;
-  final Color color;
+  final WindowId? id;
+  final Widget? child;
+  final Color? color;
   /*/// The tabs hosted by the window.
   final List<TabData> tabs;
 
@@ -123,7 +123,7 @@ class WindowData extends Model {
 /// A collection of windows.
 class WindowsData extends Model with ChangeNotifier {
   /// The actual windows.
-  final List<WindowData> windows = new List<WindowData>();
+  List<WindowData>? windows;
 
   /*/// Called by a window to claim a tab owned by another window.
   TabData _claimTab(TabId id) {
@@ -143,9 +143,9 @@ class WindowsData extends Model with ChangeNotifier {
   }*/
 
   /// Adds a new window, with an optional existing tab.
-  void add({Widget child, Color color}) {
+  void add({Widget? child, Color? color}) {
     //final TabData tab = id != null ? _claimTab(id) : null;
-    windows.add(new WindowData(
+    windows?.add(new WindowData(
       child: child != null ? child : Container(color: Colors.deepPurple[200]),
       color: color != null ? color : Colors.deepPurple,
       /*tabs: tab != null
@@ -162,39 +162,39 @@ class WindowsData extends Model with ChangeNotifier {
   }
 
   void close(WindowData window) {
-    windows.remove(window);
+    windows?.remove(window);
     notifyListeners();
   }
 
   /// Moves the given [window] to the front of the pack.
   void moveToFront(WindowData window) {
-    if (windows.isEmpty ||
-        !windows.contains(window) ||
-        windows.last == window) {
+    if (windows!.isEmpty ||
+        !windows!.contains(window) ||
+        windows!.last == window) {
       return;
     }
-    windows.remove(window);
-    windows.add(window);
+    windows!.remove(window);
+    windows!.add(window);
     notifyListeners();
   }
 
   /// Returns the data for the [id] window, or the result of calling [orElse],
   /// or [null].
-  WindowData find(WindowId id, {WindowData orElse()}) => windows.firstWhere(
+  WindowData find(WindowId id, {WindowData orElse()}) => windows!.firstWhere(
         (WindowData window) => window.id == id,
         orElse: orElse ?? () => null,
       );
 
   /// Returns the window adjacent to [id] in the list in the direction specified
   /// by [forward].
-  WindowId next({@required WindowId id, @required bool forward}) {
-    final int index = new List<int>.generate(windows.length, (int x) => x)
-        .firstWhere((int i) => windows[i].id == id, orElse: () => -1);
+  WindowId next({@required WindowId? id, @required bool? forward}) {
+    final int index = new List<int>.generate(windows!.length, (int x) => x)
+        .firstWhere((int i) => windows![i].id == id, orElse: () => -1);
     if (index == -1) {
       return null;
     }
-    final int nextIndex = (index + (forward ? 1 : -1)) % windows.length;
-    return windows[nextIndex].id;
+    final int nextIndex = (index + (forward! ? 1 : -1)) % windows!.length;
+    return windows![nextIndex].id!;
   }
 }
 
@@ -243,10 +243,10 @@ class ModelFinder<T extends Model> {
   /// whenever there's a change to the returned model.
   T of(BuildContext context, {bool rebuildOnChange: false}) {
     final Type type = new _InheritedModel<T>.forRuntimeType().runtimeType;
-    Widget widget = rebuildOnChange
+    Widget? widget = rebuildOnChange
         ? context.inheritFromWidgetOfExactType(type)
         : context.ancestorWidgetOfExactType(type);
-    return (widget is _InheritedModel<T>) ? widget.model : null;
+    return (widget! is _InheritedModel<T>) ? widget.model : null;
   }
 }
 
@@ -318,10 +318,10 @@ class _ModelListenerState extends State<_ModelListener> {
 class _InheritedModel<T extends Model> extends InheritedWidget {
   final T model;
   final int version;
-  _InheritedModel({Key key, Widget child, T model})
-      : this.model = model,
+  _InheritedModel({Key? key, Widget? child, T? model})
+      : this.model = model!,
         this.version = model._version,
-        super(key: key, child: child);
+        super(key: key, child: child!);
 
   /// Used to return the runtime type.
   _InheritedModel.forRuntimeType()
@@ -344,19 +344,19 @@ typedef Widget ScopedModelDescendantBuilder<T extends Model>(
 /// provided by an ancestor [ScopedModel] changes.
 class ScopedModelDescendant<T extends Model> extends StatelessWidget {
   /// Called whenever the [Model] changes.
-  final ScopedModelDescendantBuilder<T> builder;
+  final ScopedModelDescendantBuilder<T>? builder;
 
   /// An optional constant child that depends on the model.  This will be passed
   /// as the child of [builder].
-  final Widget child;
+  final Widget? child;
 
   /// Constructor.
   ScopedModelDescendant({this.builder, this.child});
 
   @override
-  Widget build(BuildContext context) => builder(
-        context,
-        child,
+  Widget build(BuildContext? context) => builder!(
+        context!,
+        child!,
         new ModelFinder<T>().of(context, rebuildOnChange: true),
       );
 }

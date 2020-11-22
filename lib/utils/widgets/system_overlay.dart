@@ -9,14 +9,14 @@ import 'animated_content_builder.dart';
 /// An overlay which animates its content and dismisses it if a click occurs
 /// outside of the content bounds.
 class SystemOverlay extends StatefulWidget {
-  final AnimatedContentBuilder _builder;
-  final ValueChanged<bool> _callback;
+  final AnimatedContentBuilder? _builder;
+  final ValueChanged<bool>? _callback;
 
   /// Constructor.
   /// [builder] is invoked to build the content of the overlay. [callback]
   /// receives notifications when the overlay is shown or hidden.
   const SystemOverlay(
-      {Key key, AnimatedContentBuilder builder, ValueChanged<bool> callback})
+      {Key? key, AnimatedContentBuilder? builder, ValueChanged<bool>? callback})
       : _builder = builder,
         _callback = callback,
         super(key: key);
@@ -28,8 +28,8 @@ class SystemOverlay extends StatefulWidget {
 /// Holds the state of a [SystemOverlay].
 class SystemOverlayState extends State<SystemOverlay>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<double> _animation;
+  AnimationController? _controller;
+  Animation<double>? _animation;
   bool _isShowing = false;
 
   @override
@@ -38,7 +38,7 @@ class SystemOverlayState extends State<SystemOverlay>
     _controller = new AnimationController(
         duration: const Duration(milliseconds: 150), vsync: this);
     _animation = new CurvedAnimation(
-      parent: _controller,
+      parent: _controller!,
       curve: Curves.fastOutSlowIn,
       reverseCurve: Curves.fastOutSlowIn,
     );
@@ -46,7 +46,7 @@ class SystemOverlayState extends State<SystemOverlay>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
@@ -57,19 +57,19 @@ class SystemOverlayState extends State<SystemOverlay>
     }
     setState(() {
       _isShowing = visible;
-      _isShowing ? _controller.forward() : _controller.reverse();
+      _isShowing ? _controller?.forward() : _controller?.reverse();
     });
     widget._callback?.call(visible);
   }
 
   @override
   Widget build(BuildContext context) => new AnimatedBuilder(
-        animation: _animation,
-        builder: (BuildContext context, Widget child) => new Offstage(
-              // Only display this overlay if it is actually visible.
-              offstage: _animation.isDismissed,
-              child: child,
-            ),
+        animation: _animation!,
+        builder: (BuildContext? context, Widget? child) => new Offstage(
+          // Only display this overlay if it is actually visible.
+          offstage: _animation!.isDismissed,
+          child: child,
+        ),
         child: new Stack(
           fit: StackFit.passthrough,
           children: <Widget>[
@@ -80,7 +80,7 @@ class SystemOverlayState extends State<SystemOverlay>
                 visible = false;
               },
             ),
-            widget._builder(_animation),
+            widget._builder!(_animation!),
           ],
         ),
       );

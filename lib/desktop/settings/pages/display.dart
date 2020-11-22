@@ -278,7 +278,7 @@ class _DisplayState extends State<Display> {
                                       new FlatButton(
                                         child: new Text("No"),
                                         onPressed: () {
-                                          Navigator.of(context).pop();
+                                          Navigator.of(context)?.pop();
                                         },
                                       ),
                                       new FlatButton(

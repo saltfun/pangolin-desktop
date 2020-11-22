@@ -51,15 +51,15 @@ class FilesHome extends StatefulWidget {
 
 class _FilesHomeState extends State<FilesHome> {
   List<SideDestination> sideDestinations = [];
-  String currentDir;
-  RelativeRect rect;
+  String? currentDir;
+  RelativeRect? rect;
   ScrollController controller = ScrollController();
 
   bool ascending = true;
   int columnIndex = 0;
   @override
   void initState() {
-    _folderProvider.directories.forEach((element) {
+    _folderProvider.directories!.forEach((element) {
       sideDestinations.add(
         SideDestination(
           element.value,
@@ -68,7 +68,7 @@ class _FilesHomeState extends State<FilesHome> {
         ),
       );
     });
-    currentDir = _folderProvider.directories[0].key;
+    currentDir = _folderProvider.directories![0].key;
     super.initState();
   }
 
@@ -123,12 +123,12 @@ class _FilesHomeState extends State<FilesHome> {
         return getEntityName(item1.path.toLowerCase())
             .compareTo(getEntityName(item2.path.toLowerCase()));
       case 1:
-        return item1.stat.modified.compareTo(item2.stat.modified);
+        return item1.stat!.modified.compareTo(item2.stat!.modified);
       case 2:
         if (isDirectory) {
-          return item1.children.length.compareTo(item2.children.length);
+          return item1.children!.length.compareTo(item2.children!.length);
         } else {
-          return item1.stat.size.compareTo(item2.stat.size);
+          return item1.stat!.size.compareTo(item2.stat!.size);
         }
         break;
     }
@@ -210,8 +210,8 @@ class _FilesHomeState extends State<FilesHome> {
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    List<String> backDir = currentDir.split("/")
-                                      ..removeLast();
+                                    List<String> backDir =
+                                        currentDir!.split("/")..removeLast();
                                     currentDir = backDir.join("/");
                                   });
                                 },
@@ -266,10 +266,10 @@ class _FilesHomeState extends State<FilesHome> {
                 ],
               ),
               body: FutureBuilder<List<EntityInfo>>(
-                future: getInfoForDir(Directory(currentDir)),
+                future: getInfoForDir(Directory(currentDir!)),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    if (snapshot.data.isNotEmpty) {
+                    if (snapshot.data!.isNotEmpty) {
                       return ConstrainedBox(
                         constraints: BoxConstraints(
                           minWidth: MediaQuery.of(context).size.width,
@@ -327,9 +327,9 @@ class _FilesHomeState extends State<FilesHome> {
                                   ),
                                 ],
                                 rows: List.generate(
-                                  snapshot.data.length,
+                                  snapshot.data!.length,
                                   (index) {
-                                    EntityInfo item = snapshot.data[index];
+                                    EntityInfo item = snapshot.data![index];
 
                                     return DataRow(
                                       onSelectChanged: (_) async {

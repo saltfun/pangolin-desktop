@@ -15,18 +15,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class Hover extends StatefulWidget {
-  final Widget child;
-  final Color color;
-  final BorderRadius borderRadius;
-  final SystemMouseCursor cursor;
-  final double opacity;
+  final Widget? child;
+  final Color? color;
+  final BorderRadius? borderRadius;
+  final SystemMouseCursor? cursor;
+  final double? opacity;
   const Hover({
     @required this.child,
     this.color,
     this.borderRadius,
     this.opacity,
     this.cursor = SystemMouseCursors.click,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -43,12 +43,12 @@ class _HoverState extends State<Hover> {
         color: _hover
             ? (widget.color == null)
                 ? Colors.black.withOpacity(widget.opacity ?? 0.3)
-                : widget.color.withOpacity(widget.opacity ?? 0.3)
+                : widget.color?.withOpacity(widget.opacity ?? 0.3)
             : Colors.black.withOpacity(0.0),
       ),
       child: Center(
         child: MouseRegion(
-            cursor: widget.cursor,
+            cursor: widget.cursor!,
             onEnter: (event) {
               setState(() {
                 _hover = true;

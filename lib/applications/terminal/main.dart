@@ -46,14 +46,14 @@ class TerminalApp extends StatelessWidget {
 }
 
 class TerminalUI extends StatefulWidget {
-  TerminalUI({Key key}) : super(key: key);
+  TerminalUI({Key? key}) : super(key: key);
   @override
   TerminalUIState createState() => new TerminalUIState();
 }
 
 class TerminalUIState extends State<TerminalUI> with TickerProviderStateMixin {
   List<Tab> tabs = [];
-  TabController tabController;
+  TabController? tabController;
   var count = 1;
   void newTab() {
     setState(() {
@@ -94,7 +94,7 @@ class TerminalUIState extends State<TerminalUI> with TickerProviderStateMixin {
 
   void closeCurrentTab() {
     setState(() {
-      tabs.removeAt(tabController.index);
+      tabs.removeAt(tabController!.index);
       tabController = TabController(length: tabs.length, vsync: this);
     });
   }
@@ -128,7 +128,7 @@ class TerminalUIState extends State<TerminalUI> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    tabController.dispose();
+    tabController!.dispose();
     super.dispose();
   }
 

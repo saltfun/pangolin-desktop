@@ -18,11 +18,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 class Localization {
-  final Locale locale;
+  final Locale? locale = Locale("en", "US");
 
   Localization(this.locale);
 
-  static Localization of(BuildContext context) {
+  static Localization? of(BuildContext context) {
     return Localizations.of<Localization>(context, Localization);
   }
 
@@ -33,11 +33,11 @@ class Localization {
     String jsonStringValues;
     try {
       jsonStringValues = await rootBundle.loadString(
-          "assets/locales/${locale.languageCode}_${locale.countryCode}.json");
+          "assets/locales/${locale?.languageCode}_${locale?.countryCode}.json");
     } catch (e) {
       print(e);
-      jsonStringValues = await rootBundle
-          .loadString("assets/locales/en_US.json");
+      jsonStringValues =
+          await rootBundle.loadString("assets/locales/en_US.json");
       print("Using backup JSON for localization");
     }
 
@@ -48,8 +48,8 @@ class Localization {
   }
 
   Future loadBackup() async {
-    String jsonStringValues = await rootBundle
-        .loadString("assets/locales/en_US.json");
+    String jsonStringValues =
+        await rootBundle.loadString("assets/locales/en_US.json");
 
     Map<String, dynamic> mappedJson = json.decode(jsonStringValues);
 
@@ -62,10 +62,10 @@ class Localization {
       if (_localizationBackupValues[key] == null) {
         return "Error";
       } else {
-        return _localizationBackupValues[key];
+        return _localizationBackupValues[key]!;
       }
     } else {
-      return _localizationValues[key];
+      return _localizationValues[key]!;
     }
   }
 

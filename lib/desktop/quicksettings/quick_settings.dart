@@ -35,8 +35,8 @@ class QuickSettingsState extends State<QuickSettings> {
   double brightness = 0.8;
   double volume = 0.5;
 
-  String _dateString;
-  String _timeString;
+  String? _dateString;
+  String? _timeString;
 
   @override
   void initState() {
@@ -70,7 +70,7 @@ class QuickSettingsState extends State<QuickSettings> {
 
   //Format date using language
   String _formatLocaleDate(DateTime dateTime) {
-    return DateFormat.yMMMMd(Localizations.localeOf(context).languageCode)
+    return DateFormat.yMMMMd(Localizations.localeOf(context)!.languageCode)
         .format(dateTime);
   }
 
@@ -112,7 +112,7 @@ class QuickSettingsState extends State<QuickSettings> {
 
   @override
   Widget build(BuildContext context) {
-    Localization local = Localization.of(context);
+    Localization local = Localization.of(context)!;
     _getTime(context);
     var biggerFont = TextStyle(
       fontSize: scale(12.0),
@@ -135,10 +135,10 @@ class QuickSettingsState extends State<QuickSettings> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(_timeString, style: biggerFont),
+                      Text(_timeString!, style: biggerFont),
                       //Icon(Icons.brightness_1, size: 10.0,color: Colors.white),
                       Text('  •  ', style: biggerFont),
-                      Text(_dateString, style: biggerFont),
+                      Text(_dateString!, style: biggerFont),
                     ],
                   )),
             ),
@@ -302,7 +302,7 @@ class QuickSettingsState extends State<QuickSettings> {
           ],
         ));
 
-    Column buildTile(IconData icon, String label, Function onClick) {
+    Column buildTile(IconData icon, String label, void Function() onClick) {
       return Column(
         //mainAxisSize: MainAxisSize.min,
         //mainAxisAlignment: MainAxisAlignment.center,
@@ -365,56 +365,56 @@ class QuickSettingsState extends State<QuickSettings> {
                   switch (Localizations.localeOf(context).toString()) {
                     case "en_US":
                       Pangolin.setLocale(context, Locale("ar", "SA"));
-                      Pangolin.settingsBox.put("language", "ar_SA");
+                      Pangolin.settingsBox!.put("language", "ar_SA");
                       break;
                     case "ar_SA":
                       Pangolin.setLocale(context, Locale("bs", "BA"));
-                      Pangolin.settingsBox.put("language", "bs_BA");
+                      Pangolin.settingsBox!.put("language", "bs_BA");
                       break;
                     case "bs_BA":
                       Pangolin.setLocale(context, Locale("hr", "HR"));
-                      Pangolin.settingsBox.put("language", "hr_HR");
+                      Pangolin.settingsBox!.put("language", "hr_HR");
                       break;
                     case "hr_HR":
                       Pangolin.setLocale(context, Locale("nl", "NL"));
-                      Pangolin.settingsBox.put("language", "nl_NL");
+                      Pangolin.settingsBox!.put("language", "nl_NL");
                       break;
                     case "nl_NL":
                       Pangolin.setLocale(context, Locale("fr", "FR"));
-                      Pangolin.settingsBox.put("language", "fr_FR");
+                      Pangolin.settingsBox!.put("language", "fr_FR");
                       break;
                     case "fr_FR":
                       Pangolin.setLocale(context, Locale("de", "DE"));
-                      Pangolin.settingsBox.put("language", "de_DE");
+                      Pangolin.settingsBox!.put("language", "de_DE");
                       break;
                     case "de_DE":
                       Pangolin.setLocale(context, Locale("id", "ID"));
-                      Pangolin.settingsBox.put("language", "id_ID");
+                      Pangolin.settingsBox!.put("language", "id_ID");
                       break;
                     case "id_ID":
                       Pangolin.setLocale(context, Locale("pl", "PL"));
-                      Pangolin.settingsBox.put("language", "pl_PL");
+                      Pangolin.settingsBox!.put("language", "pl_PL");
                       break;
                     case "pl_PL":
                       Pangolin.setLocale(context, Locale("pt", "BR"));
-                      Pangolin.settingsBox.put("language", "pt_BR");
+                      Pangolin.settingsBox!.put("language", "pt_BR");
                       break;
                     case "pt_BR":
                       Pangolin.setLocale(context, Locale("ru", "RU"));
-                      Pangolin.settingsBox.put("language", "ru_RU");
+                      Pangolin.settingsBox!.put("language", "ru_RU");
                       break;
                     case "ru_RU":
                       Pangolin.setLocale(context, Locale("sv", "SE"));
-                      Pangolin.settingsBox.put("language", "sv_SE");
+                      Pangolin.settingsBox!.put("language", "sv_SE");
                       break;
                     case "sv_SE":
                       Pangolin.setLocale(context, Locale("uk", "UA"));
-                      Pangolin.settingsBox.put("language", "uk_UA");
+                      Pangolin.settingsBox!.put("language", "uk_UA");
                       break;
                     case "uk_UA":
                     default:
                       Pangolin.setLocale(context, Locale("en", "US"));
-                      Pangolin.settingsBox.put("language", "en_US");
+                      Pangolin.settingsBox!.put("language", "en_US");
                       break;
                   }
                 }),
@@ -443,15 +443,15 @@ void notImplemented(BuildContext context) {
       // return object of type Dialog
       return AlertDialog(
         title: new Text(
-            Localization.of(context).get("featurenotimplemented_title")),
+            Localization.of(context)!.get("featurenotimplemented_title")),
         content: new Text(
-            Localization.of(context).get("featurenotimplemented_value")),
+            Localization.of(context)!.get("featurenotimplemented_value")),
         actions: <Widget>[
           // usually buttons at the bottom of the dialog
           new FlatButton(
             child: new Text("OK"),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(context)?.pop();
             },
           ),
         ],

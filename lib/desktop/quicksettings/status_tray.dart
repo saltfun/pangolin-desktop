@@ -32,17 +32,17 @@ class StatusTrayWidget extends StatefulWidget {
 
   /// Constructor.
   StatusTrayWidget({
-    GlobalKey<ToggleState> toggleKey,
-    ValueChanged<bool> callback,
-  })  : _toggleKey = toggleKey,
-        _callback = callback;
+    GlobalKey<ToggleState>? toggleKey,
+    ValueChanged<bool>? callback,
+  })  : _toggleKey = toggleKey!,
+        _callback = callback!;
 
   @override
   StatusTrayWidgetState createState() => StatusTrayWidgetState();
 }
 
 class StatusTrayWidgetState extends State<StatusTrayWidget> {
-  String _timeString;
+  String? _timeString;
   @override
   void initState() {
     _timeString = _formatDateTime(DateTime.now());
@@ -78,7 +78,7 @@ class StatusTrayWidgetState extends State<StatusTrayWidget> {
         builder: (Animation<double> animation) {
           return new AnimatedBuilder(
             animation: animation,
-            builder: (BuildContext context, Widget child) => new Container(
+            builder: (BuildContext? context, Widget? child) => new Container(
               margin: EdgeInsets.symmetric(vertical: 4.0),
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               decoration: new BoxDecoration(
@@ -107,7 +107,7 @@ class StatusTrayWidgetState extends State<StatusTrayWidget> {
                       color: Colors.white,
                     ),
                     Text(
-                      _timeString,
+                      _timeString!,
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     ),
                   ]),

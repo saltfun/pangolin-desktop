@@ -20,25 +20,25 @@ import 'package:flutter/material.dart';
 import 'package:xdg_directories/xdg_directories.dart';
 
 class FolderProvider {
-  List<MapEntry<String, IconData>> directories = [];
+  List<MapEntry<String, IconData>>? directories = [];
 
   FolderProvider() {
     final dirNames = getUserDirectoryNames();
     dirNames.forEach((element) {
-      directories.add(
+      directories!.add(
         MapEntry(
           getUserDirectory(element).path,
-          icons[element],
+          icons[element]!,
         ),
       );
     });
 
-    List<String> backDir = directories[0].key.split("/")..removeLast();
-    directories.insert(
+    List<String> backDir = directories![0].key.split("/")..removeLast();
+    directories!.insert(
       0,
       MapEntry(
         backDir.join("/"),
-        icons["HOME"],
+        icons["HOME"]!,
       ),
     );
     //directories.sort((a, b) => a.key.compareTo(b.key));

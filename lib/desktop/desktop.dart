@@ -27,9 +27,9 @@ import 'package:Pangolin/utils/others/functions.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Desktop extends StatefulWidget {
-  Desktop({Key key, this.title}) : super(key: key);
+  Desktop({Key? key, this.title}) : super(key: key);
 
-  final String title;
+  final String? title;
 
   @override
   _DesktopState createState() => _DesktopState();
@@ -73,7 +73,8 @@ class _DesktopState extends State<Desktop> {
             builder: (Animation<double> animation) => Center(
               child: AnimatedBuilder(
                 animation: animation,
-                builder: (BuildContext context, Widget child) => FadeTransition(
+                builder: (BuildContext? context, Widget? child) =>
+                    FadeTransition(
                   opacity: _overlayOpacityTween.animate(animation),
                   child: SlideTransition(
                     position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
@@ -91,7 +92,7 @@ class _DesktopState extends State<Desktop> {
               ),
             ),
             callback: (bool visible) {
-              KeyRing.launcherToggleKey.currentState.toggled = visible;
+              KeyRing.launcherToggleKey.currentState?.toggled = visible;
             },
           ),
 
@@ -103,7 +104,8 @@ class _DesktopState extends State<Desktop> {
               bottom: 50.0,
               child: AnimatedBuilder(
                 animation: animation,
-                builder: (BuildContext context, Widget child) => FadeTransition(
+                builder: (BuildContext? context, Widget? child) =>
+                    FadeTransition(
                   opacity: _overlayOpacityTween.animate(animation),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
@@ -135,7 +137,7 @@ class _DesktopState extends State<Desktop> {
               ),
             ),
             callback: (bool visible) {
-              KeyRing.statusToggleKey.currentState.toggled = visible;
+              KeyRing.statusToggleKey.currentState?.toggled = visible;
             },
           ),
 

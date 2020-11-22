@@ -28,7 +28,7 @@ class WindowPlaygroundWidget extends StatefulWidget {
 }
 
 class _PlaygroundState extends State<WindowPlaygroundWidget> {
-  WindowsData _windows;
+  WindowsData? _windows;
 //    ..add(
 //      color: Colors.green[700],
 //      child: Calculator(),
@@ -61,7 +61,7 @@ class _PlaygroundState extends State<WindowPlaygroundWidget> {
   final FocusScopeNode _focusNode = FocusScopeNode();
 
   /// Currently highlighted window when paging through windows.
-  WindowId _highlightedWindow;
+  WindowId? _highlightedWindow;
 
   /*@override
   void initState() {
@@ -107,37 +107,37 @@ class _PlaygroundState extends State<WindowPlaygroundWidget> {
   List<Widget> _buildWindows(
       WindowsData model, double maxWidth, double maxHeight) {
     // Remove keys that are no longer useful.
-    List<WindowId> obsoleteIds = List<WindowId>();
+    List<WindowId>? obsoleteIds;
     _windowKeys.keys.forEach((WindowId id) {
-      if (!model.windows.any((WindowData window) => window.id == id)) {
-        obsoleteIds.add(id);
+      if (!model.windows!.any((WindowData window) => window.id == id)) {
+        obsoleteIds?.add(id);
       }
     });
-    obsoleteIds.forEach((WindowId id) => _windowKeys.remove(id));
+    obsoleteIds?.forEach((WindowId id) => _windowKeys.remove(id));
 
     // Adjust window order if there's a highlighted window.
-    final List<WindowData> windows = List<WindowData>.from(model.windows);
+    final List<WindowData>? windows = List<WindowData>.from(model.windows!);
     if (_highlightedWindow != null) {
-      final WindowData window = model.find(_highlightedWindow);
+      final WindowData window = model.find(_highlightedWindow!);
       if (window != null) {
-        windows.remove(window);
-        windows.add(window);
+        windows?.remove(window);
+        windows?.add(window);
       }
     }
 
-    return windows
+    return windows!
         .map((WindowData window) => ScopedModel<WindowData>(
               model: window,
               child: Window(
                 key: _windowKeys.putIfAbsent(
-                  window.id,
+                  window.id!,
                   () => GlobalKey<WindowState>(),
                 ),
                 initialPosition: Offset(maxWidth / 4, maxHeight / 4),
                 initialSize: Size(maxWidth / 2, maxHeight / 2),
                 onWindowInteraction: () => model.moveToFront(window),
                 onWindowClose: () => model.close(window),
-                color: window.color,
+                color: window.color!,
                 child: window.child,
               ),
             ))
@@ -160,7 +160,7 @@ class _PlaygroundState extends State<WindowPlaygroundWidget> {
                   node: _focusNode,
                   autofocus: true,
                   child: ScopedModel<WindowsData>(
-                    model: _windows,
+                    model: _windows!,
                     child: ScopedModelDescendant<WindowsData>(
                       builder: (
                         BuildContext context,

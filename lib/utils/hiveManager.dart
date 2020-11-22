@@ -19,7 +19,7 @@ class HiveManager {
     createEntryIfNotExisting("blur", true);
     createEntryIfNotExisting("accentColorName", "orange");
     createEntryIfNotExisting(
-        "accentColorValue", Colors.deepOrangeAccent[400].value);
+        "accentColorValue", Colors.deepOrangeAccent[400]!.value);
     createEntryIfNotExisting("darkMode", true);
     createEntryIfNotExisting("centerTaskbar", false);
     createEntryIfNotExisting("volumeLevel", 0.75);
@@ -44,19 +44,19 @@ class HiveManager {
   }
 
   static set(String key, dynamic value) {
-    Pangolin.settingsBox.put(key, value);
+    Pangolin.settingsBox!.put(key, value);
   }
 
   static get(String key) {
-    return Pangolin.settingsBox.get(key);
+    return Pangolin.settingsBox!.get(key);
   }
 
   static double magicNumber = double.infinity;
 }
 
 createEntryIfNotExisting(String key, dynamic value) {
-  if (Pangolin.settingsBox.get(key) == null) {
-    Pangolin.settingsBox.put(key, value);
+  if (Pangolin.settingsBox!.get(key) == null) {
+    Pangolin.settingsBox!.put(key, value);
   }
 }
 

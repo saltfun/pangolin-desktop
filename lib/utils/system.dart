@@ -20,7 +20,7 @@ import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 
 class Configuration {
-  String theme;
+  String? theme;
 
   Configuration({
     this.theme,
@@ -34,7 +34,7 @@ class Configuration {
 }
 
 Future<String> _loadConfigAsset() async {
-  return await File(path.join(Platform.environment['HOME'], 'system.json'))
+  return await File(path.join(Platform.environment['HOME']!, 'system.json'))
       .readAsStringSync();
 }
 
@@ -43,7 +43,7 @@ Future<String> loadConfig() async {
   final jsonResponse = json.decode(jsonString);
   Configuration config = new Configuration.fromJson(jsonResponse);
   print(config.theme);
-  String value = config.theme;
+  String value = config.theme!;
   return value;
 }
 

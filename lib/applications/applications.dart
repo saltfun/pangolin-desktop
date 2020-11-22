@@ -34,9 +34,9 @@ import 'package:Pangolin/utils/others/functions.dart';
 import 'package:Pangolin/applications/logging/logging.dart';
 
 Expanded tileSection(BuildContext context) {
-  Localization local = Localization.of(context);
+  Localization local = Localization.of(context)!;
 
-  double _width() {
+  double? _width() {
     double width = MediaQuery.of(context).size.width;
     if (width >= 1920) {
       return HiveManager.get("launcherWideMode") ? 100 : 350;
@@ -54,7 +54,7 @@ Expanded tileSection(BuildContext context) {
   return Expanded(
     child: Container(
         padding: EdgeInsets.all(15.0),
-        margin: EdgeInsets.symmetric(horizontal: _width()),
+        margin: EdgeInsets.symmetric(horizontal: _width()!),
         child: SingleChildScrollView(
           child: Wrap(spacing: 18.0, children: [
             AppLauncherButton(

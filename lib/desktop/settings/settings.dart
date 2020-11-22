@@ -39,10 +39,10 @@ void main() {
   );
 }
 
-int selected;
+int? selected;
 
 class Settings extends StatelessWidget {
-  static List<TileItem> items = new List<TileItem>();
+  static List<TileItem>? items;
   static PageController contoller = PageController();
   @override
   Widget build(BuildContext context) {
@@ -69,8 +69,8 @@ class Settings extends StatelessWidget {
   }
 }
 
-Widget buildSettings(
-    IconData icon, String title, Color color, context, Function onTap) {
+Widget buildSettings(IconData? icon, String? title, Color? color, context,
+    void Function()? onTap) {
   return new GestureDetector(
       onTap: onTap,
       child: Container(
@@ -85,7 +85,7 @@ Widget buildSettings(
                 child: Icon(icon, size: 20, color: color)),
             Padding(
                 padding: EdgeInsets.all(5),
-                child: Text(title,
+                child: Text(title!,
                     style: TextStyle(fontSize: 15, color: Color(0xff000000))))
           ])));
 }
@@ -107,9 +107,9 @@ Container buildSettingsHeader(String title) {
 final TextEditingController editingController = new TextEditingController();
 
 class SettingsPage extends StatefulWidget {
-  final String title;
+  final String? title;
 
-  SettingsPage({Key key, this.title}) : super(key: key);
+  SettingsPage({Key? key, this.title}) : super(key: key);
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -118,46 +118,45 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
-    Settings.items = new List();
-    Settings.items.add(new TileItem(
+    Settings.items?.add(new TileItem(
         "Connections",
         "Wi-Fi, Bluetooth, other connections",
         Icons.wifi,
         true,
         Connections()));
-    Settings.items.add(new TileItem("Volume and sounds", "Sound mode, volume",
+    Settings.items?.add(new TileItem("Volume and sounds", "Sound mode, volume",
         Icons.volume_up, false, Sound()));
-    Settings.items.add(new TileItem("Display", "Brightness, Blue light filter",
+    Settings.items?.add(new TileItem("Display", "Brightness, Blue light filter",
         Icons.brightness_5, false, Display()));
-    Settings.items.add(new TileItem(
+    Settings.items?.add(new TileItem(
         "Customization",
         "Customize the look and feel of Pangolin",
         Icons.color_lens,
         false,
         Customization()));
-    Settings.items.add(new TileItem("Applications",
+    Settings.items?.add(new TileItem("Applications",
         "Manage Apps and permissions", Icons.apps, false, Applications()));
-    Settings.items.add(new TileItem(
+    Settings.items?.add(new TileItem(
         "Security",
         "Settings for security and privacy",
         Icons.security,
         false,
         Security()));
-    Settings.items.add(new TileItem("Accounts", "Manage and add accounts",
+    Settings.items?.add(new TileItem("Accounts", "Manage and add accounts",
         Icons.people, false, Accounts()));
-    Settings.items.add(new TileItem(
+    Settings.items?.add(new TileItem(
         "Backup", "Backup and Restore", Icons.update, false, Backup()));
-    Settings.items.add(new TileItem("Advanced Features", "Coming soon!",
+    Settings.items?.add(new TileItem("Advanced Features", "Coming soon!",
         Icons.add_circle_outline, false, AdvancedFeatures()));
-    Settings.items.add(new TileItem(
+    Settings.items?.add(new TileItem(
         "General management",
         "Language, Keyboard, Time",
         Icons.language,
         false,
         GeneralManagement()));
-    Settings.items.add(new TileItem("Updates", "Download, Sources, Changelog",
+    Settings.items?.add(new TileItem("Updates", "Download, Sources, Changelog",
         Icons.system_update, false, Updates()));
-    Settings.items.add(new TileItem(
+    Settings.items?.add(new TileItem(
         "About Device", "Status, Information", Icons.laptop, false, About()));
     super.initState();
   }
@@ -167,7 +166,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       // floatingActionButton: FloatingActionButton(
       //   onPressed: () {
-      //     Navigator.of(context).pushNamed("/settingshome");
+      //     Navigator.of(context)?.pushNamed("/settingshome");
       //   },
       //   child: Icon(Icons.grid_on_outlined),
       // ),
@@ -199,7 +198,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                       onTap: () {
                                         Future.delayed(Duration.zero, () {
                                           Navigator.of(context)
-                                              .pushNamed("/settingshome");
+                                              ?.pushNamed("/settingshome");
                                         });
                                       },
                                       child: Container(
@@ -239,7 +238,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   child: GestureDetector(
                                     onTap: () {
                                       Navigator.of(context)
-                                          .pushNamed("/search");
+                                          ?.pushNamed("/search");
                                     },
                                     child: new Container(
                                       width: 700,
@@ -262,8 +261,8 @@ class _SettingsPageState extends State<SettingsPage> {
                                                   hintStyle: TextStyle(
                                                     color: Theme.of(context)
                                                         .textTheme
-                                                        .bodyText1
-                                                        .color,
+                                                        .bodyText1!
+                                                        .color!,
                                                     fontSize: 15,
                                                   ),
                                                   icon: Icon(
@@ -294,12 +293,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 0),
                             child: ListView.builder(
-                              itemCount: Settings.items.length,
+                              itemCount: Settings.items?.length,
                               itemBuilder: (BuildContext context, int i) {
                                 return Container(
                                   margin: EdgeInsets.all(6),
                                   decoration: BoxDecoration(
-                                      color: Settings.items[i].selected == true
+                                      color: Settings.items?[i].selected == true
                                           ? Color(HiveManager.get(
                                                   "accentColorValue"))
                                               .withOpacity(0.2)
@@ -313,7 +312,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                         visible: constraints.maxWidth > 768
                                             ? true
                                             : false,
-                                        child: Text(Settings.items[i].title,
+                                        child: Text(Settings.items![i].title!,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyText1),
@@ -322,10 +321,10 @@ class _SettingsPageState extends State<SettingsPage> {
                                           visible: constraints.maxWidth > 768
                                               ? true
                                               : false,
-                                          child:
-                                              Text(Settings.items[i].subtitle)),
+                                          child: Text(
+                                              Settings.items![i].subtitle!)),
                                       leading: Icon(
-                                        Settings.items[i].icon,
+                                        Settings.items![i].icon,
                                         color: Color(HiveManager.get(
                                             "accentColorValue")),
                                       ),
@@ -355,12 +354,12 @@ class _SettingsPageState extends State<SettingsPage> {
                           controller: Settings.contoller,
                           onPageChanged: (index) {
                             setState(() {
-                              setSelected(index, Settings.items);
+                              setSelected(index, Settings.items!);
                             });
                           },
-                          itemCount: Settings.items.length,
+                          itemCount: Settings.items?.length,
                           itemBuilder: (context, index) {
-                            return Settings.items[index].page;
+                            return Settings.items![index].page!;
                           })),
                 ],
               ),
@@ -373,10 +372,10 @@ class _SettingsPageState extends State<SettingsPage> {
 }
 
 class TileItem {
-  String title, subtitle;
-  IconData icon;
-  bool selected;
-  Widget page;
+  String? title, subtitle;
+  IconData? icon;
+  bool? selected;
+  Widget? page;
 
   TileItem(this.title, this.subtitle, this.icon, this.selected, this.page);
 }
@@ -407,7 +406,7 @@ class _SearchState extends State<Search> {
               //elevation: 5.0,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context)?.pop();
                 },
                 child: new Container(
                   width: 700,
@@ -419,7 +418,7 @@ class _SearchState extends State<Search> {
                       InkWell(
                         onTap: () {
                           Future.delayed(Duration.zero, () {
-                            Navigator.of(context).pop();
+                            Navigator.of(context)?.pop();
                           });
                         },
                         child: Icon(
@@ -438,7 +437,7 @@ class _SearchState extends State<Search> {
                         decoration: new InputDecoration(
                             hintStyle: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText1.color,
+                                  Theme.of(context).textTheme.bodyText1?.color,
                               fontSize: 15,
                             ),
                             icon: Icon(

@@ -21,7 +21,7 @@ class AuthApp extends StatelessWidget {
 }
 
 class AuthHomePage extends StatefulWidget {
-  AuthHomePage({Key key}) : super(key: key);
+  AuthHomePage({Key? key}) : super(key: key);
   @override
   _AuthHomePageState createState() => new _AuthHomePageState();
 }

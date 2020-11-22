@@ -31,7 +31,7 @@ class Logs extends StatelessWidget {
 }
 
 class LogsPage extends StatefulWidget {
-  LogsPage({Key key}) : super(key: key);
+  LogsPage({Key? key}) : super(key: key);
   @override
   _LogsPageState createState() => new _LogsPageState();
 }

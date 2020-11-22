@@ -18,10 +18,10 @@ class LauncherToggleWidget extends StatelessWidget {
 
   /// Constructor.
   LauncherToggleWidget({
-    GlobalKey<ToggleState> toggleKey,
-    ValueChanged<bool> callback,
-  })  : _toggleKey = toggleKey,
-        _callback = callback;
+    GlobalKey<ToggleState>? toggleKey,
+    ValueChanged<bool>? callback,
+  })  : _toggleKey = toggleKey!,
+        _callback = callback!;
 
   @override
   Widget build(BuildContext context) => new SizedBox(
@@ -34,7 +34,8 @@ class LauncherToggleWidget extends StatelessWidget {
             aspectRatio: 1.0,
             child: new AnimatedBuilder(
               animation: animation,
-              builder: (BuildContext context, Widget child) => new CustomPaint(
+              builder: (BuildContext? context, Widget? child) =>
+                  new CustomPaint(
                 painter: new _Painter(
                   _backgroundOpacityTween.evaluate(animation),
                 ),

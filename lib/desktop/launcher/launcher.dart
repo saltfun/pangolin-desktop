@@ -29,8 +29,7 @@ class LauncherWidget extends StatefulWidget {
 
 MaterialButton buildTile(String icon, String label) {
   return MaterialButton(
-    onPressed: null
-    ,
+    onPressed: null,
     child: Column(
       //mainAxisSize: MainAxisSize.min,
       //mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +60,7 @@ MaterialButton buildTile(String icon, String label) {
 class LauncherState extends State<LauncherWidget> {
   @override
   Widget build(BuildContext context) {
-    Localization local = Localization.of(context);
+    Localization local = Localization.of(context)!;
 
     return MaterialApp(
       theme: ThemeData(
@@ -83,9 +82,7 @@ class LauncherState extends State<LauncherWidget> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  new SearchWidget(
-                    local.get("launcher_search")
-                  ),
+                  new SearchWidget(local.get("launcher_search")),
                   const SizedBox(height: 35),
                   new SingleChildScrollView(
                       padding: new EdgeInsets.only(

@@ -18,8 +18,8 @@ import 'package:flutter/material.dart';
 
 class DahliaNotification {
   static showNotification(
-      String title, String subtitle, IconData icon, Function onClick) async {
-    OverlayEntry _overlayEntry;
+      String? title, subtitle, IconData? icon, Function? onClick) async {
+    OverlayEntry? _overlayEntry;
     bool _hover = false;
     _overlayEntry = OverlayEntry(
         builder: (context) => Positioned(
@@ -28,8 +28,8 @@ class DahliaNotification {
                   width: 350,
                   child: GestureDetector(
                     onTap: () {
-                      onClick;
-                      _overlayEntry.remove();
+                      onClick!;
+                      _overlayEntry?.remove();
                     },
                     child: MouseRegion(
                       onHover: (event) {
@@ -62,17 +62,17 @@ class DahliaNotification {
                                             SizedBox(
                                               width: 10,
                                             ),
-                                            Text(title,
+                                            Text(title!,
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .headline6
+                                                    .headline6!
                                                     .copyWith(fontSize: 17)),
                                           ],
                                         ),
                                       ),
                                       IconButton(
                                         onPressed: () {
-                                          _overlayEntry.remove();
+                                          _overlayEntry?.remove();
                                         },
                                         icon: Icon(
                                           Icons.close,
@@ -101,7 +101,7 @@ class DahliaNotification {
               bottom: 50,
               right: 5,
             ));
-    Pangolin.overlayState.insert(_overlayEntry);
+    Pangolin.overlayState?.insert(_overlayEntry);
 
     await Future.delayed(Duration(seconds: 5));
 

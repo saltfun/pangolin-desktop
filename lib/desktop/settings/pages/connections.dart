@@ -24,16 +24,17 @@ class Connections extends StatefulWidget {
 }
 
 class _ConnectionsState extends State<Connections> {
-  List<WifiItem> wifiList = new List<WifiItem>();
-  List<BluetoothItem> bluetoothList = new List<BluetoothItem>();
+  List<WifiItem>? wifiList;
+  List<BluetoothItem>? bluetoothList;
   @override
   void initState() {
     // TODO: implement initState
-    wifiList.add(new WifiItem("Wi-Fi 1", true));
-    wifiList.add(new WifiItem("Wi-Fi 2", false));
-    wifiList.add(new WifiItem("Wi-Fi 3", false));
-    bluetoothList.add(new BluetoothItem("Some Random Bluetooth Device", false));
-    bluetoothList.add(new BluetoothItem(
+    wifiList?.add(new WifiItem("Wi-Fi 1", true));
+    wifiList?.add(new WifiItem("Wi-Fi 2", false));
+    wifiList?.add(new WifiItem("Wi-Fi 3", false));
+    bluetoothList
+        ?.add(new BluetoothItem("Some Random Bluetooth Device", false));
+    bluetoothList?.add(new BluetoothItem(
         "Another Bluetooth Device with a longer name to test if that causes errors",
         false));
 
@@ -90,21 +91,21 @@ class _ConnectionsState extends State<Connections> {
                                     Container(
                                       height: 300,
                                       child: ListView.builder(
-                                          itemCount: wifiList.length,
+                                          itemCount: wifiList?.length,
                                           itemBuilder:
                                               (BuildContext context, int i) {
                                             return ListTile(
                                               leading: Icon(
-                                                wifiList[i].icon,
-                                                color: wifiList[i].connected
+                                                wifiList![i].icon,
+                                                color: wifiList![i].connected
                                                     ? Color(HiveManager.get(
                                                         "accentColorValue"))
                                                     : Colors.grey,
                                               ),
                                               title: Text(
-                                                wifiList[i].name,
+                                                wifiList![i].name,
                                                 style: TextStyle(
-                                                  color: wifiList[i].connected
+                                                  color: wifiList![i].connected
                                                       ? Color(HiveManager.get(
                                                           "accentColorValue"))
                                                       : (HiveManager.get(
@@ -114,12 +115,12 @@ class _ConnectionsState extends State<Connections> {
                                                 ),
                                               ),
                                               subtitle: Text(
-                                                  wifiList[i].connected
+                                                  wifiList![i].connected
                                                       ? "Connected"
                                                       : "Disconnected"),
                                               onTap: () {
                                                 setState(() {
-                                                  setConnected(i, wifiList);
+                                                  setConnected(i, wifiList!);
                                                 });
                                               },
                                             );
@@ -145,23 +146,23 @@ class _ConnectionsState extends State<Connections> {
                                     Container(
                                       height: 300,
                                       child: ListView.builder(
-                                          itemCount: bluetoothList.length,
+                                          itemCount: bluetoothList!.length,
                                           itemBuilder:
                                               (BuildContext context, int i) {
                                             return ListTile(
                                               leading: Icon(
-                                                bluetoothList[i].icon,
+                                                bluetoothList![i].icon,
                                                 color:
-                                                    bluetoothList[i].connected
+                                                    bluetoothList![i].connected
                                                         ? Color(HiveManager.get(
                                                             "accentColorValue"))
                                                         : Colors.grey,
                                               ),
                                               title: Text(
-                                                bluetoothList[i].name,
+                                                bluetoothList![i].name,
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
-                                                  color: bluetoothList[i]
+                                                  color: bluetoothList![i]
                                                           .connected
                                                       ? Color(HiveManager.get(
                                                           "accentColorValue"))
@@ -172,13 +173,13 @@ class _ConnectionsState extends State<Connections> {
                                                 ),
                                               ),
                                               subtitle: Text(
-                                                  bluetoothList[i].connected
+                                                  bluetoothList![i].connected
                                                       ? "Connected"
                                                       : "Disconnected"),
                                               onTap: () {
                                                 setState(() {
                                                   setConnected(
-                                                      i, bluetoothList);
+                                                      i, bluetoothList!);
                                                 });
                                               },
                                             );

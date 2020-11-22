@@ -17,7 +17,7 @@ limitations under the License.
 import 'package:flutter/material.dart';
 
 class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
-  List<Widget> actions = List<Widget>();
+  List<Widget>? actions;
   SearchAppBar({this.actions});
 
   @override
@@ -31,7 +31,7 @@ class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _SearchAppBarState extends State<SearchAppBar> {
   final TextEditingController editingController = new TextEditingController();
 
-  BuildContext _context;
+  BuildContext? _context;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
             ),
           ),
           Row(
-            children: widget.actions,
+            children: widget.actions!,
           )
         ],
       ),
